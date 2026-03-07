@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Resume | Exor.dev</title>
+  <meta
+    name="description"
+    content="Resume and experience overview from Exor.dev."
+  />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="terminal-shell">
+    <div class="terminal-bar">
+      <div class="terminal-buttons">
+        <span class="dot red"></span>
+        <span class="dot yellow"></span>
+        <span class="dot green"></span>
+      </div>
+      <div class="terminal-title">exor@dev: ~/resume</div>
+    </div>
+
+    <header class="hero">
+      <p class="prompt">exor@dev:~$ <span>cd /resume</span></p>
+      <h1>Resume</h1>
+      <p class="tagline">Experience • Skills • Direction</p>
+      <p class="intro">
+        This page will become a clean summary of experience, technical focus, and professional direction, with the same
+        straightforward style as the rest of the site.
+      </p>
+
+      <nav class="main-nav" aria-label="Primary navigation">
+        <a href="/">~/home</a>
+        <a href="projects.html">~/projects</a>
+        <a href="homelab.html">~/homelab</a>
+        <a href="blog.html">~/blog</a>
+        <a href="resume.html" aria-current="page">~/resume</a>
+      </nav>
+    </header>
+
+    <main class="content">
+      <section class="panel">
+        <p class="prompt">exor@dev:~$ <span>cat status.txt</span></p>
+        <p>
+          Work in progress. A full resume page is planned here, including experience, technical strengths, and a more
+          formal overview for recruiters, collaborators, and hiring teams.
+        </p>
+      </section>
+
+      <section class="panel">
+        <p class="prompt">exor@dev:~$ <span>ls planned_sections/</span></p>
+        <div class="terminal-output">
+          <p><span class="output-label">[plan]</span> experience and roles</p>
+          <p><span class="output-label">[plan]</span> technical focus and tooling</p>
+          <p><span class="output-label">[plan]</span> education, certifications, and contact details</p>
+        </div>
+      </section>
+
+      <section class="panel">
+        <p class="prompt">exor@dev:~$ <span>echo $NEXT</span></p>
+        <p>
+          Until the full page is ready, the homepage and projects page remain the best overview of current direction and
+          work.
+        </p>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>© 2026 Exor.dev <span class="cursor">█</span></p>
+    </footer>
+  </div>
+</body>
+</html>

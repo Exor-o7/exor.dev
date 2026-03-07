@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Homelab | Exor.dev</title>
+  <meta
+    name="description"
+    content="Homelab notes and infrastructure progress from Exor.dev."
+  />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="terminal-shell">
+    <div class="terminal-bar">
+      <div class="terminal-buttons">
+        <span class="dot red"></span>
+        <span class="dot yellow"></span>
+        <span class="dot green"></span>
+      </div>
+      <div class="terminal-title">exor@dev: ~/homelab</div>
+    </div>
+
+    <header class="hero">
+      <p class="prompt">exor@dev:~$ <span>cd /homelab</span></p>
+      <h1>Homelab</h1>
+      <p class="tagline">Infrastructure • Services • Notes</p>
+      <p class="intro">
+        This page will document my self-hosted environment, service layout, operating notes, and the practical lessons
+        learned while building and maintaining my homelab.
+      </p>
+
+      <nav class="main-nav" aria-label="Primary navigation">
+        <a href="/">~/home</a>
+        <a href="projects.html">~/projects</a>
+        <a href="homelab.html" aria-current="page">~/homelab</a>
+        <a href="blog.html">~/blog</a>
+        <a href="resume.html">~/resume</a>
+      </nav>
+    </header>
+
+    <main class="content">
+      <section class="panel">
+        <p class="prompt">exor@dev:~$ <span>cat status.txt</span></p>
+        <p>
+          Work in progress. This section is being built out to cover infrastructure, networking, self-hosted services,
+          and the systems behind the lab.
+        </p>
+      </section>
+
+      <section class="panel">
+        <p class="prompt">exor@dev:~$ <span>ls planned_sections/</span></p>
+        <div class="terminal-output">
+          <p><span class="output-label">[plan]</span> service inventory and purpose</p>
+          <p><span class="output-label">[plan]</span> network and host layout</p>
+          <p><span class="output-label">[plan]</span> monitoring, backups, and operating notes</p>
+        </div>
+      </section>
+
+      <section class="panel">
+        <p class="prompt">exor@dev:~$ <span>echo $NEXT</span></p>
+        <p>
+          As the page grows, it will become the reference point for how my homelab is structured and what I am learning
+          from it.
+        </p>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>© 2026 Exor.dev <span class="cursor">█</span></p>
+    </footer>
+  </div>
+</body>
+</html>
