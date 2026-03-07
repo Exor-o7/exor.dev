@@ -1,59 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Exor.dev</title>
-<link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Exor.dev</title>
+  <meta
+    name="description"
+    content="Exor.dev - Computer Science journey, automation projects, homelab infrastructure, and developer portfolio."
+  />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="css/style.css" />
 </head>
-
 <body>
+  <div class="terminal-shell">
+    <div class="terminal-bar">
+      <div class="terminal-buttons">
+        <span class="dot red"></span>
+        <span class="dot yellow"></span>
+        <span class="dot green"></span>
+      </div>
+      <div class="terminal-title">exor@dev: ~</div>
+    </div>
 
-<header>
-<h1>Exor.dev</h1>
-<p>Computer Science Journey • Automation • Homelab</p>
+    <header class="hero">
+      <p class="prompt">exor@dev:~$ <span>whoami</span></p>
+      <h1>Exor</h1>
+      <p class="tagline">Computer Science Journey • Automation • Homelab</p>
+      <p class="intro">
+        I’m building my path through computer science, systems administration,
+        automation, and self-hosted infrastructure.
+      </p>
 
-<nav>
-<a href="/">Home</a>
-<a href="projects.html">Projects</a>
-<a href="homelab.html">Homelab</a>
-<a href="blog.html">Blog</a>
-<a href="resume.html">Resume</a>
-</nav>
-</header>
+      <nav class="main-nav">
+        <a href="/">~/home</a>
+        <a href="projects.html">~/projects</a>
+        <a href="homelab.html">~/homelab</a>
+        <a href="blog.html">~/blog</a>
+        <a href="resume.html">~/resume</a>
+      </nav>
+    </header>
 
-<main>
+    <main class="content">
+      <section class="panel">
+        <p class="prompt">exor@dev:~$ <span>cat about.txt</span></p>
+        <p>
+          I’m Exor, a computer science student and systems enthusiast focused on
+          automation, homelab infrastructure, scripting, and real-world technical
+          projects.
+        </p>
+      </section>
 
-<section>
-<h2>About Me</h2>
-<p>
-I'm Exor, a computer science student and systems enthusiast focused on automation,
-homelab infrastructure, and software projects.
-</p>
-</section>
+      <section class="panel">
+        <p class="prompt">exor@dev:~$ <span>cat current_focus.txt</span></p>
+        <ul class="focus-list">
+          <li>Computer Science education</li>
+          <li>Automation and scripting</li>
+          <li>Homelab infrastructure</li>
+          <li>Open source and practical tooling</li>
+        </ul>
+      </section>
 
-<section>
-<h2>Current Focus</h2>
-<ul>
-<li>Computer Science education</li>
-<li>Automation and scripting</li>
-<li>Homelab infrastructure</li>
-<li>Open source projects</li>
-</ul>
-</section>
+      <section class="panel">
+        <p class="prompt">exor@dev:~$ <span>ls links/</span></p>
+        <div class="link-grid">
+          <a href="https://github.com/Exor-o7" target="_blank" rel="noopener noreferrer">github</a>
+          <a href="resume.html">resume</a>
+          <a href="projects.html">projects</a>
+          <a href="homelab.html">homelab</a>
+        </div>
+      </section>
 
-<section>
-<h2>GitHub</h2>
-<p>
-<a href="https://github.com/Exor-o7">View my GitHub</a>
-</p>
-</section>
+      <section class="panel">
+        <p class="prompt">exor@dev:~$ <span>echo $STATUS</span></p>
+        <p class="status-line">Currently online at <strong>exor.dev</strong></p>
+      </section>
+    </main>
 
-</main>
-
-<footer>
-<p>© 2026 Exor.dev</p>
-</footer>
-
+    <footer class="site-footer">
+      <p>© 2026 Exor.dev <span class="cursor">█</span></p>
+    </footer>
+  </div>
 </body>
 </html>
