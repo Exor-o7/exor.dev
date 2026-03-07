@@ -47,20 +47,22 @@ body {
 .terminal-bar {
   display: flex;
   align-items: center;
-  gap: 12px;
-  padding: 10px 16px;
-  border-bottom: 1px solid rgba(89, 200, 255, 0.10);
-  background: rgba(3, 8, 14, 0.55);
+  gap: 16px;
+  padding: 14px 18px;
+  border-bottom: 1px solid rgba(89, 200, 255, 0.12);
+  background: rgba(255, 255, 255, 0.02);
 }
 
 .terminal-buttons {
-  display: none;
+  display: flex;
+  gap: 8px;
 }
 
 .dot {
-  width: 0;
-  height: 0;
-  display: none;
+  width: 12px;
+  height: 12px;
+  border-radius: 999px;
+  display: inline-block;
 }
 
 .dot::before {
@@ -68,7 +70,7 @@ body {
 }
 
 .red {
-  background: none;
+  background: #ff5f56;
 }
 
 .red::before {
@@ -76,7 +78,7 @@ body {
 }
 
 .yellow {
-  background: none;
+  background: #ffbd2e;
 }
 
 .yellow::before {
@@ -84,7 +86,7 @@ body {
 }
 
 .green {
-  background: none;
+  background: #27c93f;
 }
 
 .green::before {
@@ -93,10 +95,7 @@ body {
 
 .terminal-title {
   color: var(--muted);
-  font-size: 0.88rem;
-  font-weight: 500;
-  letter-spacing: 0.04em;
-  text-transform: lowercase;
+  font-size: 0.95rem;
 }
 
 .hero,
