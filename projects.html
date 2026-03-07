@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects | Exor.dev</title>
+  <meta
+    name="description"
+    content="Projects from Exor.dev covering practical builds, automation, homelab work, and in-progress technical experiments."
+  />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="terminal-shell">
+    <div class="terminal-bar">
+      <div class="terminal-buttons">
+        <span class="dot red"></span>
+        <span class="dot yellow"></span>
+        <span class="dot green"></span>
+      </div>
+      <div class="terminal-title">exor@dev: ~/projects</div>
+    </div>
+
+    <header class="hero">
+      <p class="prompt">exor@dev:~$ <span>cd /projects</span></p>
+      <h1>Projects</h1>
+      <p class="tagline">Practical Builds • Experiments • Ongoing Work</p>
+      <p class="intro">
+        A running list of projects, technical experiments, and work-in-progress ideas centered around automation,
+        systems, homelab infrastructure, and steady hands-on learning.
+      </p>
+
+      <nav class="main-nav" aria-label="Primary navigation">
+        <a href="/">~/home</a>
+        <a href="projects.html" aria-current="page">~/projects</a>
+        <a href="homelab.html">~/homelab</a>
+        <a href="blog.html">~/blog</a>
+        <a href="resume.html">~/resume</a>
+      </nav>
+    </header>
+
+    <main class="content">
+      <section class="panel">
+        <p class="prompt">exor@dev:~$ <span>ls featured/</span></p>
+        <div class="project-list">
+          <article class="project-card">
+            <div class="project-header">
+              <h2>Exor.dev</h2>
+              <span class="status-pill active">active</span>
+            </div>
+            <p>
+              My personal portfolio site built to document current work, technical direction, and the projects that shape
+              my path through computer science, infrastructure, and automation.
+            </p>
+            <ul class="meta-list">
+              <li><strong>focus:</strong> portfolio, identity, documentation</li>
+              <li><strong>stack:</strong> HTML, CSS</li>
+            </ul>
+            <div class="link-grid compact-links">
+              <a href="/">live</a>
+              <a href="https://github.com/Exor-o7" target="_blank" rel="noopener noreferrer">github</a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-header">
+              <h2>Homelab Documentation</h2>
+              <span class="status-pill building">in progress</span>
+            </div>
+            <p>
+              An evolving record of my self-hosted environment, including services, layout, and the decisions behind how
+              systems are deployed and maintained.
+            </p>
+            <ul class="meta-list">
+              <li><strong>focus:</strong> documentation, infrastructure, learning by doing</li>
+              <li><strong>stack:</strong> Linux, networking, self-hosting, notes</li>
+            </ul>
+            <div class="link-grid compact-links">
+              <a href="homelab.html">page</a>
+              <a href="https://github.com/Exor-o7" target="_blank" rel="noopener noreferrer">github</a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-header">
+              <h2>Automation Tooling</h2>
+              <span class="status-pill building">building</span>
+            </div>
+            <p>
+              Small scripts and utility-focused work aimed at reducing repetition, improving workflows, and building a
+              better understanding of practical systems automation.
+            </p>
+            <ul class="meta-list">
+              <li><strong>focus:</strong> scripting, workflow improvement, practical tooling</li>
+              <li><strong>stack:</strong> scripting, terminal workflows, systems tasks</li>
+            </ul>
+            <div class="link-grid compact-links">
+              <a href="https://github.com/Exor-o7" target="_blank" rel="noopener noreferrer">github</a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="panel">
+        <p class="prompt">exor@dev:~$ <span>ls in-progress/</span></p>
+        <div class="terminal-output">
+          <p><span class="output-label">[active]</span> expanding Exor.dev into a full multi-page portfolio</p>
+          <p><span class="output-label">[lab]</span> documenting homelab services, layout, and operating notes</p>
+          <p><span class="output-label">[build]</span> growing a body of practical automation and scripting work</p>
+        </div>
+      </section>
+
+      <section class="panel">
+        <p class="prompt">exor@dev:~$ <span>cat build_philosophy.txt</span></p>
+        <p>
+          I prefer practical projects over filler. My goal is to build work that teaches useful fundamentals, improves a
+          workflow, or supports real systems. Each project is a way to learn more deeply, document what matters, and make
+          progress through implementation.
+        </p>
+      </section>
+
+      <section class="panel">
+        <p class="prompt">exor@dev:~$ <span>echo $GITHUB</span></p>
+        <p>
+          More source code, experiments, and active development live on GitHub.
+        </p>
+        <div class="link-grid compact-links">
+          <a href="https://github.com/Exor-o7" target="_blank" rel="noopener noreferrer">github.com/Exor-o7</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>© 2026 Exor.dev <span class="cursor">█</span></p>
+    </footer>
+  </div>
+</body>
+</html>
