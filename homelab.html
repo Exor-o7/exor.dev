@@ -6,7 +6,7 @@
   <title>Homelab | Exor.dev</title>
   <meta
     name="description"
-    content="Homelab notes, infrastructure progress, and operational lessons from Exor.dev."
+    content="Homelab overview for Conley Dannels (Exor): self-hosted infrastructure, Docker services, storage, networking, and automation."
   />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -28,12 +28,14 @@
     </div>
 
     <header class="hero">
-      <p class="prompt">exor@dev:~$ <span>cd /homelab</span></p>
+      <p class="prompt">exor@dev:~$ <span>cat homelab.md</span></p>
       <h1>Homelab</h1>
-      <p class="tagline">Infrastructure • Services • Notes</p>
+      <p class="alias-line">operator: Conley Dannels / Exor</p>
+      <p class="role-line">Focus: Self-Hosting • Automation • Infrastructure • DevOps-Style Workflows</p>
       <p class="intro">
-        This page will document my self-hosted environment, service layout, operating notes, and the practical lessons
-        learned while building and maintaining systems that support automation, reliability, and hands-on growth.
+        My homelab is where I build, test, break, fix, automate, and learn. It powers self-hosted services, Docker
+        workloads, storage, reverse proxy access, and the infrastructure ideas I want to carry into systems,
+        automation, and DevOps-style workflows.
       </p>
 
       <nav class="main-nav" aria-label="Primary navigation">
@@ -47,37 +49,117 @@
 
     <main class="content">
       <section class="panel">
-        <p class="prompt">exor@dev:~$ <span>cat status.txt</span></p>
+        <p class="prompt">exor@dev:~$ <span>whoami</span></p>
         <p>
-          Work in progress. This section is being built out to cover infrastructure, networking, self-hosted services,
-          and the systems behind the lab.
+          I use this lab to gain hands-on experience with Linux, Docker Compose, storage, networking, backup strategy,
+          reverse proxies, media automation, scripting, and service troubleshooting. It is both a learning playground
+          and a production environment for services I rely on daily.
         </p>
       </section>
 
       <section class="panel">
-        <p class="prompt">exor@dev:~$ <span>ls planned_sections/</span></p>
+        <p class="prompt">exor@dev:~$ <span>tree ~/homelab -L 2</span></p>
+        <pre class="code-block">homelab
+├── virtualization
+│   ├── Proxmox
+│   └── game servers
+├── storage
+│   ├── TrueNAS
+│   ├── datasets / shares
+│   └── media storage
+├── containers
+│   ├── Docker Compose
+│   ├── Jellyfin
+│   ├── Radarr
+│   ├── Sonarr
+│   ├── Jellyseerr
+│   ├── Jellystat
+│   └── supporting services
+├── networking
+│   ├── UniFi / UDM Pro
+│   ├── DNS / routing
+│   ├── reverse proxy
+│   └── remote access
+└── automation
+    ├── Bash
+    ├── Python
+    └── operational scripts</pre>
+      </section>
+
+      <section class="panel">
+        <p class="prompt">exor@dev:~$ <span>cat virtualization.txt</span></p>
         <div class="terminal-output">
-          <p><span class="output-label">[plan]</span> service inventory and purpose</p>
-          <p><span class="output-label">[plan]</span> network and host layout</p>
-          <p><span class="output-label">[plan]</span> monitoring, backups, and operating notes</p>
-          <p><span class="output-label">[plan]</span> automation, observability, and repeatable maintenance tasks</p>
+          <p>Proxmox is my general virtualization platform for hosting workloads, including game servers, and for learning infrastructure management.</p>
+          <p>I use virtualization to separate workloads, experiment safely, and build repeatable environments.</p>
+          <p>This gives me hands-on experience with infrastructure layout, resource planning, and service isolation.</p>
         </div>
       </section>
 
       <section class="panel">
-        <p class="prompt">exor@dev:~$ <span>cat goals.txt</span></p>
+        <p class="prompt">exor@dev:~$ <span>cat storage.txt</span></p>
         <div class="terminal-output">
-          <p><span class="output-label">[goal]</span> build a lab that teaches reliable operations and infrastructure habits</p>
-          <p><span class="output-label">[goal]</span> document decisions clearly enough to revisit and improve them later</p>
-          <p><span class="output-label">[goal]</span> use the lab as a foundation for automation and future DevOps-style workflows</p>
+          <p>TrueNAS is the storage backbone of my lab.</p>
+          <p>I use it for media storage, shared data, and service-related datasets.</p>
+          <p>Storage planning, reliability, and practical organization are a major part of how I run the environment.</p>
         </div>
       </section>
 
       <section class="panel">
-        <p class="prompt">exor@dev:~$ <span>echo $NEXT</span></p>
+        <p class="prompt">exor@dev:~$ <span>docker compose ls</span></p>
+        <div class="terminal-output">
+          <p><strong>Jellyfin</strong> — media streaming and library management</p>
+          <p><strong>Radarr</strong> — movie automation and release management</p>
+          <p><strong>Sonarr</strong> — TV automation and library workflow</p>
+          <p><strong>Jellyseerr</strong> — request management for media users</p>
+          <p><strong>Jellystat</strong> — usage metrics, visibility, and media server insight</p>
+          <p><strong>Supporting services</strong> — the glue that keeps the stack reliable and usable</p>
+        </div>
+      </section>
+
+      <section class="panel">
+        <p class="prompt">exor@dev:~$ <span>cat media-stack.txt</span></p>
         <p>
-          As the page grows, it will become the reference point for how my homelab is structured and what I am learning
-          from it.
+          One of the biggest parts of my homelab is a self-hosted media ecosystem. I work on reliability, release
+          quality, matching rules, subtitle preferences, storage behavior, and general automation. This has given me
+          practical experience in service orchestration, troubleshooting, file workflows, and quality-of-life
+          optimization for real users.
+        </p>
+      </section>
+
+      <section class="panel">
+        <p class="prompt">exor@dev:~$ <span>cat networking.txt</span></p>
+        <div class="terminal-output">
+          <p>UniFi and UDM Pro are part of my networking environment.</p>
+          <p>I work with routing, DNS, WAN-related configuration, and service exposure.</p>
+          <p>I also use reverse proxy concepts and domain-based access to publish services more cleanly.</p>
+        </div>
+      </section>
+
+      <section class="panel">
+        <p class="prompt">exor@dev:~$ <span>cat automation.txt</span></p>
+        <div class="terminal-output">
+          <p>I use Bash, Python, and other scripting tools to reduce repetitive work.</p>
+          <p>My automation efforts include update checks, service workflows, cleanup logic, and operational helpers.</p>
+          <p>The goal is always the same: reduce manual work, improve consistency, and make systems easier to manage.</p>
+        </div>
+      </section>
+
+      <section class="panel">
+        <p class="prompt">exor@dev:~$ <span>cat what_im_learning.txt</span></p>
+        <div class="terminal-output">
+          <p>Infrastructure design and service dependency planning</p>
+          <p>Docker-first workflows and maintainable Compose deployments</p>
+          <p>Operational troubleshooting and root-cause thinking</p>
+          <p>Storage strategy, backup planning, and reliability mindset</p>
+          <p>DevOps-adjacent habits through real systems, not just theory</p>
+        </div>
+      </section>
+
+      <section class="panel">
+        <p class="prompt">exor@dev:~$ <span>echo $GOAL</span></p>
+        <p class="status-line">
+          Build a homelab that is not just cool to have, but useful for developing the skills needed for systems,
+          automation, infrastructure work, and future DevOps-style operations.
         </p>
       </section>
     </main>
