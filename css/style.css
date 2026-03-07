@@ -119,6 +119,15 @@ h1 {
   color: var(--accent);
 }
 
+.alias-line,
+.role-line {
+  margin: 10px 0 0;
+}
+
+.role-line {
+  color: var(--muted);
+}
+
 .tagline {
   margin: 14px 0 10px;
   color: var(--text);
@@ -166,6 +175,15 @@ h1 {
   background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(0,0,0,0.03));
   border: 1px solid rgba(89, 200, 255, 0.10);
   border-radius: 14px;
+}
+
+.panel a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.panel a:hover {
+  color: var(--accent-strong);
 }
 
 .panel p:last-child,
