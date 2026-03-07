@@ -113,6 +113,12 @@ h1 {
   text-shadow: 0 0 16px rgba(89, 200, 255, 0.12);
 }
 
+.alias-line::before {
+  content: ">";
+  margin-right: 8px;
+  color: var(--accent);
+}
+
 .tagline {
   margin: 14px 0 10px;
   color: var(--text);
