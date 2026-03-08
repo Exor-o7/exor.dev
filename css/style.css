@@ -94,7 +94,7 @@ body {
 .red::before {
   content: "–";
   font-size: 0.95rem;
-  transform: translateY(1px);
+  transform: translateY(2px);
 }
 
 .yellow {
