@@ -156,6 +156,19 @@ h1 {
   color: var(--muted);
 }
 
+.hero-terminal-snippet {
+  max-width: 420px;
+  margin-top: 18px;
+}
+
+.hero-terminal-snippet .prompt {
+  margin-bottom: 8px;
+}
+
+.hero-terminal-snippet .code-block {
+  padding: 12px 14px;
+}
+
 .main-nav {
   display: flex;
   flex-wrap: wrap;
