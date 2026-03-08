@@ -1,16 +1,23 @@
 :root {
-  --bg: #020202;
-  --shell: #06070d;
-  --shell-top: #0a0b12;
-  --border: #0d1b70;
-  --text: #e8edff;
-  --muted: #9aa5d1;
-  --accent-rgb: 3, 12, 84;
+  --sea-1: #01013f;
+  --sea-2: #030c54;
+  --sea-3: #022f8e;
+  --sea-4: #1c70c8;
+  --sea-5: #51a2d5;
+  --sea-6: #7dbcde;
+  --bg: #000000;
+  --shell: #01013f;
+  --shell-top: #030c54;
+  --border: #1c70c8;
+  --text: #eef7ff;
+  --muted: #7dbcde;
+  --accent-rgb: 81, 162, 213;
+  --accent-deep-rgb: 3, 12, 84;
   --accent-base: #030c54;
-  --accent: #4358d8;
-  --accent-strong: #7d8fff;
-  --accent-dim: #2233a6;
-  --panel: #05070f;
+  --accent: #51a2d5;
+  --accent-strong: #7dbcde;
+  --accent-dim: #1c70c8;
+  --panel: #01013f;
   --shadow: rgba(0, 0, 0, 0.38);
 }
 
@@ -28,7 +35,7 @@ body {
   padding: 32px 18px;
   font-family: "JetBrains Mono", monospace;
   background:
-    radial-gradient(circle at top, rgba(var(--accent-rgb), 0.14), transparent 34%),
+    radial-gradient(circle at top, rgba(var(--accent-rgb), 0.18), transparent 34%),
     linear-gradient(180deg, #000000 0%, var(--bg) 100%);
   color: var(--text);
   line-height: 1.7;
