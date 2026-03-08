@@ -6,8 +6,8 @@
   --sea-5: #51a2d5;
   --sea-6: #7dbcde;
   --bg: #000000;
-  --shell: #01013f;
-  --shell-top: #030c54;
+  --shell: #030714;
+  --shell-top: #07122a;
   --border: #1c70c8;
   --text: #eef7ff;
   --muted: #7dbcde;
@@ -204,7 +204,7 @@ h1 {
 .panel {
   margin-bottom: 22px;
   padding: 20px;
-  background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(0,0,0,0.03));
+  background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(0,0,0,0.10));
   border: 1px solid rgba(var(--accent-rgb), 0.20);
   border-radius: 14px;
 }
@@ -233,7 +233,7 @@ h1 {
   padding: 18px;
   border: 1px solid rgba(var(--accent-rgb), 0.22);
   border-radius: 12px;
-  background: rgba(var(--accent-rgb), 0.12);
+  background: rgba(var(--accent-deep-rgb), 0.18);
 }
 
 .project-card h2 {
@@ -311,7 +311,7 @@ h1 {
   white-space: pre-wrap;
   border: 1px solid rgba(var(--accent-rgb), 0.22);
   border-radius: 12px;
-  background: rgba(var(--accent-rgb), 0.14);
+  background: rgba(var(--accent-deep-rgb), 0.18);
   color: var(--text);
   line-height: 1.65;
 }
@@ -337,7 +337,7 @@ h1 {
   padding: 8px 12px;
   border: 1px solid rgba(var(--accent-rgb), 0.24);
   border-radius: 10px;
-  background: rgba(var(--accent-rgb), 0.16);
+  background: rgba(var(--accent-deep-rgb), 0.22);
   transition: 0.18s ease;
 }
 
