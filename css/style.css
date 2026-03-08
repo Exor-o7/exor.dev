@@ -343,11 +343,6 @@ h1 {
 }
 
 .site-footer {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  flex-wrap: wrap;
   padding-top: 8px;
   padding-bottom: 24px;
   border-top: 1px solid rgba(89, 200, 255, 0.08);
@@ -356,11 +351,6 @@ h1 {
 
 .site-footer p {
   margin: 0;
-}
-
-.footer-meta {
-  margin-left: auto;
-  text-align: right;
 }
 
 .site-footer a {
@@ -413,10 +403,5 @@ h1 {
   .main-nav a,
   .link-grid a {
     width: 100%;
-  }
-
-  .footer-meta {
-    margin-left: 0;
-    text-align: left;
   }
 }
