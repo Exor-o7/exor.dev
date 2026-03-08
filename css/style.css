@@ -172,7 +172,9 @@ h1 {
 }
 
 .role-line {
-  color: var(--muted);
+  margin: 14px 0 10px;
+  color: var(--text);
+  font-size: 1.02rem;
 }
 
 .tagline {
