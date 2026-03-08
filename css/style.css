@@ -130,6 +130,13 @@ body {
   color: var(--text);
 }
 
+.typing-cursor::after {
+  content: "_";
+  margin-left: 2px;
+  color: var(--accent-strong);
+  animation: blink 1s steps(1) infinite;
+}
+
 h1 {
   margin: 0;
   font-size: clamp(2.3rem, 6vw, 3.6rem);
@@ -222,6 +229,19 @@ h1 {
 .panel ul:last-child,
 .panel div:last-child {
   margin-bottom: 0;
+}
+
+.index-reveal {
+  opacity: 0;
+  transform: translateY(10px);
+  transition:
+    opacity 0.35s ease,
+    transform 0.35s ease;
+}
+
+.index-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .project-list {
