@@ -1,14 +1,16 @@
 :root {
-  --bg: #06101d;
-  --shell: #0b1728;
-  --shell-top: #0e1d31;
-  --border: #17314d;
-  --text: #d8ecff;
-  --muted: #8aa6c1;
-  --accent: #59c8ff;
-  --accent-strong: #8fddff;
-  --accent-dim: #2a91c3;
-  --panel: #0a1422;
+  --bg: #020202;
+  --shell: #06070d;
+  --shell-top: #0a0b12;
+  --border: #0d1b70;
+  --text: #e8edff;
+  --muted: #9aa5d1;
+  --accent-rgb: 3, 12, 84;
+  --accent-base: #030c54;
+  --accent: #4358d8;
+  --accent-strong: #7d8fff;
+  --accent-dim: #2233a6;
+  --panel: #05070f;
   --shadow: rgba(0, 0, 0, 0.38);
 }
 
@@ -26,8 +28,8 @@ body {
   padding: 32px 18px;
   font-family: "JetBrains Mono", monospace;
   background:
-    radial-gradient(circle at top, rgba(89, 200, 255, 0.08), transparent 32%),
-    linear-gradient(180deg, #040b16 0%, var(--bg) 100%);
+    radial-gradient(circle at top, rgba(var(--accent-rgb), 0.14), transparent 34%),
+    linear-gradient(180deg, #000000 0%, var(--bg) 100%);
   color: var(--text);
   line-height: 1.7;
 }
@@ -40,7 +42,7 @@ body {
   border-radius: 16px;
   overflow: hidden;
   box-shadow:
-    0 0 0 1px rgba(89, 200, 255, 0.05),
+    0 0 0 1px rgba(var(--accent-rgb), 0.10),
     0 24px 80px var(--shadow);
 }
 
@@ -49,8 +51,8 @@ body {
   align-items: center;
   gap: 16px;
   padding: 14px 18px;
-  border-bottom: 1px solid rgba(89, 200, 255, 0.12);
-  background: rgba(255, 255, 255, 0.02);
+  border-bottom: 1px solid rgba(var(--accent-rgb), 0.18);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(var(--accent-rgb), 0.08));
 }
 
 .terminal-buttons {
@@ -108,7 +110,7 @@ body {
 .hero {
   padding-top: 34px;
   padding-bottom: 26px;
-  border-bottom: 1px solid rgba(89, 200, 255, 0.08);
+  border-bottom: 1px solid rgba(var(--accent-rgb), 0.14);
 }
 
 .prompt {
@@ -126,7 +128,7 @@ h1 {
   font-size: clamp(2.3rem, 6vw, 3.6rem);
   line-height: 1.1;
   color: var(--accent-strong);
-  text-shadow: 0 0 16px rgba(89, 200, 255, 0.12);
+  text-shadow: 0 0 16px rgba(var(--accent-rgb), 0.28);
 }
 
 .alias-line::before {
@@ -166,8 +168,8 @@ h1 {
 .main-nav a {
   color: var(--accent);
   text-decoration: none;
-  border: 1px solid rgba(89, 200, 255, 0.16);
-  background: rgba(89, 200, 255, 0.04);
+  border: 1px solid rgba(var(--accent-rgb), 0.26);
+  background: rgba(var(--accent-rgb), 0.18);
   padding: 8px 12px;
   border-radius: 10px;
   transition: 0.18s ease;
@@ -175,16 +177,16 @@ h1 {
 
 .main-nav a:hover {
   color: var(--accent-strong);
-  border-color: rgba(89, 200, 255, 0.34);
-  background: rgba(89, 200, 255, 0.08);
+  border-color: rgba(var(--accent-rgb), 0.50);
+  background: rgba(var(--accent-rgb), 0.28);
   transform: translateY(-1px);
 }
 
 .main-nav a[aria-current="page"] {
   color: var(--accent-strong);
-  border-color: rgba(89, 200, 255, 0.34);
-  background: rgba(89, 200, 255, 0.10);
-  box-shadow: inset 0 0 0 1px rgba(89, 200, 255, 0.10);
+  border-color: rgba(var(--accent-rgb), 0.58);
+  background: rgba(var(--accent-rgb), 0.34);
+  box-shadow: inset 0 0 0 1px rgba(var(--accent-rgb), 0.18);
 }
 
 .content {
@@ -196,7 +198,7 @@ h1 {
   margin-bottom: 22px;
   padding: 20px;
   background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(0,0,0,0.03));
-  border: 1px solid rgba(89, 200, 255, 0.10);
+  border: 1px solid rgba(var(--accent-rgb), 0.20);
   border-radius: 14px;
 }
 
@@ -222,9 +224,9 @@ h1 {
 
 .project-card {
   padding: 18px;
-  border: 1px solid rgba(89, 200, 255, 0.12);
+  border: 1px solid rgba(var(--accent-rgb), 0.22);
   border-radius: 12px;
-  background: rgba(89, 200, 255, 0.03);
+  background: rgba(var(--accent-rgb), 0.12);
 }
 
 .project-card h2 {
@@ -252,7 +254,7 @@ h1 {
   font-size: 0.8rem;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  border: 1px solid rgba(89, 200, 255, 0.18);
+  border: 1px solid rgba(var(--accent-rgb), 0.26);
 }
 
 .status-pill.active {
@@ -300,9 +302,9 @@ h1 {
   padding: 16px;
   overflow-x: auto;
   white-space: pre-wrap;
-  border: 1px solid rgba(89, 200, 255, 0.12);
+  border: 1px solid rgba(var(--accent-rgb), 0.22);
   border-radius: 12px;
-  background: rgba(89, 200, 255, 0.04);
+  background: rgba(var(--accent-rgb), 0.14);
   color: var(--text);
   line-height: 1.65;
 }
@@ -326,16 +328,16 @@ h1 {
   color: var(--accent);
   text-decoration: none;
   padding: 8px 12px;
-  border: 1px solid rgba(89, 200, 255, 0.14);
+  border: 1px solid rgba(var(--accent-rgb), 0.24);
   border-radius: 10px;
-  background: rgba(89, 200, 255, 0.04);
+  background: rgba(var(--accent-rgb), 0.16);
   transition: 0.18s ease;
 }
 
 .link-grid a:hover {
   color: var(--accent-strong);
-  border-color: rgba(89, 200, 255, 0.34);
-  background: rgba(89, 200, 255, 0.08);
+  border-color: rgba(var(--accent-rgb), 0.52);
+  background: rgba(var(--accent-rgb), 0.28);
 }
 
 .status-line strong {
@@ -345,7 +347,7 @@ h1 {
 .site-footer {
   padding-top: 8px;
   padding-bottom: 24px;
-  border-top: 1px solid rgba(89, 200, 255, 0.08);
+  border-top: 1px solid rgba(var(--accent-rgb), 0.14);
   color: var(--muted);
 }
 
