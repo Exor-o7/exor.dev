@@ -363,12 +363,12 @@ h1 {
 }
 
 .site-footer a {
-  color: var(--accent);
+  color: var(--accent-strong);
   text-decoration: none;
 }
 
 .site-footer a:hover {
-  color: var(--accent-strong);
+  color: var(--text);
 }
 
 .cursor {
