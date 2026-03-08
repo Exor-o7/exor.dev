@@ -15,6 +15,7 @@
     rel="stylesheet"
   />
   <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
 </head>
 <body>
   <div class="terminal-shell">
@@ -49,18 +50,66 @@
       <section class="panel">
         <p class="prompt">exor@dev:~$ <span>cat status.txt</span></p>
         <p>
-          Work in progress. Posts are not live yet, but this page is reserved for technical writeups, build logs, and
-          documentation that goes deeper than the main project summaries.
+          This page now acts as a simple index for technical writeups, build logs, and notes that go deeper than the
+          main project summaries. More entries will be added over time as projects mature.
         </p>
       </section>
 
       <section class="panel">
-        <p class="prompt">exor@dev:~$ <span>ls planned_posts/</span></p>
+        <p class="prompt">exor@dev:~$ <span>ls entries/</span></p>
+        <div class="project-list">
+          <article class="project-card">
+            <div class="project-header">
+              <h2>Building Exor.dev</h2>
+              <span class="status-pill active">new</span>
+            </div>
+            <p>A short writeup on turning a single static page into a clearer multi-page portfolio with a terminal-inspired style.</p>
+            <ul class="meta-list">
+              <li><strong>type:</strong> site build log</li>
+              <li><strong>focus:</strong> UX, structure, iteration</li>
+            </ul>
+            <div class="link-grid compact-links">
+              <a href="blog-exor-dev.html">read entry</a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-header">
+              <h2>Homelab Notes: What I Actually Learn</h2>
+              <span class="status-pill active">new</span>
+            </div>
+            <p>A focused note on what the homelab teaches beyond self-hosting: troubleshooting, planning, reliability, and operations.</p>
+            <ul class="meta-list">
+              <li><strong>type:</strong> lab reflection</li>
+              <li><strong>focus:</strong> systems, infrastructure, operations</li>
+            </ul>
+            <div class="link-grid compact-links">
+              <a href="blog-homelab-lessons.html">read entry</a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-header">
+              <h2>Automation That Actually Helps</h2>
+              <span class="status-pill active">new</span>
+            </div>
+            <p>A practical note on using scripting and small tooling to remove repetition and make systems easier to run.</p>
+            <ul class="meta-list">
+              <li><strong>type:</strong> workflow note</li>
+              <li><strong>focus:</strong> Python, PowerShell, repeatable tasks</li>
+            </ul>
+            <div class="link-grid compact-links">
+              <a href="blog-automation-workflows.html">read entry</a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="panel">
+        <p class="prompt">exor@dev:~$ <span>ls backlog/</span></p>
         <div class="terminal-output">
-          <p><span class="output-label">[draft]</span> building Exor.dev from a simple static site</p>
-          <p><span class="output-label">[draft]</span> lessons from homelab infrastructure and self-hosting</p>
-          <p><span class="output-label">[draft]</span> scripting, automation, and practical workflow improvements</p>
           <p><span class="output-label">[draft]</span> where AI-assisted workflows are useful and where they are not</p>
+          <p><span class="output-label">[draft]</span> project writeups with more screenshots, notes, and lessons learned</p>
         </div>
       </section>
 
@@ -83,7 +132,7 @@
     </main>
 
     <footer class="site-footer">
-      <p>© 2026 Exor.dev • <a href="https://github.com/Exor-o7/exor.dev" target="_blank" rel="noopener noreferrer">source</a> <span class="cursor">█</span></p>
+      <p>© 2026 Exor.dev • last updated 2026-03-07 • <a href="https://github.com/Exor-o7/exor.dev" target="_blank" rel="noopener noreferrer">source</a> <span class="cursor">█</span></p>
     </footer>
   </div>
 </body>

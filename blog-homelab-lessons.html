@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Homelab Notes: What I Actually Learn | Exor.dev</title>
+  <meta
+    name="description"
+    content="A short note on what a homelab teaches beyond self-hosting: troubleshooting, reliability, and operational thinking."
+  />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+</head>
+<body>
+  <div class="terminal-shell">
+    <div class="terminal-bar">
+      <div class="terminal-buttons">
+        <span class="dot red"></span>
+        <span class="dot yellow"></span>
+        <span class="dot green"></span>
+      </div>
+      <div class="terminal-title">exor@dev: ~/blog/homelab-lessons</div>
+    </div>
+
+    <header class="hero">
+      <p class="prompt">exor@dev:~$ <span>cat homelab-lessons.md</span></p>
+      <h1>Homelab Notes: What I Actually Learn</h1>
+      <p class="tagline">Homelab • Reliability • Operations</p>
+      <p class="intro">
+        A homelab is useful because it teaches more than how to deploy services. It teaches troubleshooting, planning,
+        tradeoffs, backup thinking, and the habit of improving systems after they break.
+      </p>
+
+      <nav class="main-nav" aria-label="Primary navigation">
+        <a href="/">~/home</a>
+        <a href="projects.html">~/projects</a>
+        <a href="homelab.html">~/homelab</a>
+        <a href="blog.html" aria-current="page">~/blog</a>
+        <a href="resume.html">~/resume</a>
+      </nav>
+    </header>
+
+    <main class="content">
+      <section class="panel">
+        <p class="prompt">exor@dev:~$ <span>cat lessons.txt</span></p>
+        <div class="terminal-output">
+          <p>Real infrastructure work means understanding service dependencies, failure points, and recovery paths.</p>
+          <p>Self-hosting creates practical pressure to care about storage, uptime, access, updates, and backups.</p>
+          <p>The most useful part is not the stack itself, but the habits built by running and maintaining it.</p>
+        </div>
+      </section>
+
+      <section class="panel">
+        <p class="prompt">exor@dev:~$ <span>cat value.txt</span></p>
+        <p>
+          That is why the homelab matters to me: it turns theory into repetition, repetition into judgment, and judgment
+          into better systems thinking.
+        </p>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>© 2026 Exor.dev • last updated 2026-03-07 • <a href="https://github.com/Exor-o7/exor.dev" target="_blank" rel="noopener noreferrer">source</a> <span class="cursor">█</span></p>
+    </footer>
+  </div>
+</body>
+</html>

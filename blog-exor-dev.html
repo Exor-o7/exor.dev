@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Building Exor.dev | Exor.dev</title>
+  <meta
+    name="description"
+    content="Notes on building Exor.dev into a simple multi-page portfolio with a terminal-inspired design."
+  />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+</head>
+<body>
+  <div class="terminal-shell">
+    <div class="terminal-bar">
+      <div class="terminal-buttons">
+        <span class="dot red"></span>
+        <span class="dot yellow"></span>
+        <span class="dot green"></span>
+      </div>
+      <div class="terminal-title">exor@dev: ~/blog/building-exor-dev</div>
+    </div>
+
+    <header class="hero">
+      <p class="prompt">exor@dev:~$ <span>cat building-exor-dev.md</span></p>
+      <h1>Building Exor.dev</h1>
+      <p class="tagline">Site Build Log • UX • Iteration</p>
+      <p class="intro">
+        Exor.dev started as a single static page and is gradually being expanded into a clearer multi-page portfolio.
+        The goal is to keep it simple, fast, and easy to update while still making the site feel intentional.
+      </p>
+
+      <nav class="main-nav" aria-label="Primary navigation">
+        <a href="/">~/home</a>
+        <a href="projects.html">~/projects</a>
+        <a href="homelab.html">~/homelab</a>
+        <a href="blog.html" aria-current="page">~/blog</a>
+        <a href="resume.html">~/resume</a>
+      </nav>
+    </header>
+
+    <main class="content">
+      <section class="panel">
+        <p class="prompt">exor@dev:~$ <span>cat why.txt</span></p>
+        <p>
+          The site exists to show direction, active work, and technical growth without relying on a heavy framework or a
+          complicated build process. Static HTML and CSS are enough for this stage, and they make iteration fast.
+        </p>
+      </section>
+
+      <section class="panel">
+        <p class="prompt">exor@dev:~$ <span>cat changes.txt</span></p>
+        <div class="terminal-output">
+          <p>Moved from a single homepage toward a fuller structure with projects, homelab, blog, resume, and 404 support.</p>
+          <p>Kept the visual identity centered on a terminal-inspired layout that non-technical visitors can still read quickly.</p>
+          <p>Focused on clarity first: navigation, page purpose, and active work before visual polish.</p>
+        </div>
+      </section>
+
+      <section class="panel">
+        <p class="prompt">exor@dev:~$ <span>echo $NEXT</span></p>
+        <p>
+          The next improvements are deeper content, more project-specific detail, and a growing set of notes that show
+          how the site evolves alongside the work it documents.
+        </p>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>© 2026 Exor.dev • last updated 2026-03-07 • <a href="https://github.com/Exor-o7/exor.dev" target="_blank" rel="noopener noreferrer">source</a> <span class="cursor">█</span></p>
+    </footer>
+  </div>
+</body>
+</html>
