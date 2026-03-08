@@ -59,8 +59,8 @@ body {
   justify-content: center;
   gap: 16px;
   padding: 10px 18px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-  background: linear-gradient(180deg, #353744 0%, #2d2f3a 100%);
+  border-bottom: 1px solid rgba(var(--accent-rgb), 0.18);
+  background: linear-gradient(180deg, rgba(3, 12, 84, 0.88) 0%, rgba(7, 18, 42, 0.96) 100%);
   position: relative;
 }
 
