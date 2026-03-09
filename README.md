@@ -25,6 +25,7 @@ This repository contains the source for a static personal site focused on:
 
 - HTML
 - CSS
+- Javascript
 - JetBrains Mono
 - GitHub Pages / custom domain
 
