@@ -103,8 +103,8 @@ body {
 
 .yellow::before {
   content: "□";
-  font-size: 2rem;
-  transform: translateY(1px);
+  font-size: 1.5rem;
+  transform: translateY(4px);
 }
 
 .green {
