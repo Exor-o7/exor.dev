@@ -94,7 +94,7 @@ body {
 .red::before {
   content: "–";
   font-size: 0.95rem;
-  transform: translateY(2px);
+  transform: translateY(4px);
 }
 
 .yellow {
@@ -104,6 +104,7 @@ body {
 .yellow::before {
   content: "□";
   font-size: 0.82rem;
+  transform: translateY(4px);
 }
 
 .green {
