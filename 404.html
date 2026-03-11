@@ -8,6 +8,9 @@
 		name="description"
 		content="Page not found on Exor.dev. Return to the homepage or continue exploring projects, homelab notes, and the resume."
 	/>
+	<script>
+		document.documentElement.classList.add("js");
+	</script>
 	<link rel="preconnect" href="https://fonts.googleapis.com" />
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 	<link
@@ -16,6 +19,7 @@
 	/>
 	<link rel="stylesheet" href="css/style.css" />
 	<link rel="icon" href="favicon.svg" type="image/svg+xml" />
+	<script src="js/index.js" defer></script>
 </head>
 <body>
 	<div class="terminal-shell">
@@ -28,7 +32,7 @@
 			<div class="terminal-title">exor@dev: ~/404</div>
 		</div>
 
-		<header class="hero">
+		<header class="hero" data-page-animate>
 			<p class="prompt">exor@dev:~$ <span>cat 404.txt</span></p>
 			<h1>404</h1>
 			<p class="tagline">Page Not Found • Route Missing • Return Available</p>
@@ -46,14 +50,14 @@
 			</nav>
 		</header>
 
-		<main class="content">
+		<main class="content" data-page-animate>
 			<section class="panel">
-				<p class="prompt">exor@dev:~$ <span>pwd</span></p>
-				<p class="status-line">Current path: <strong>not found</strong></p>
+				<p class="prompt">exor@dev:~$ <span>echo $ROUTE</span></p>
+				<p class="status-line">Current route: <strong>not found</strong></p>
 			</section>
 
 			<section class="panel">
-				<p class="prompt">exor@dev:~$ <span>ls available/</span></p>
+				<p class="prompt">exor@dev:~$ <span>ls ~/</span></p>
 				<div class="link-grid">
 					<a href="/">home</a>
 					<a href="projects.html">projects</a>

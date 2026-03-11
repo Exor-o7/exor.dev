@@ -8,6 +8,9 @@
     name="description"
     content="A short note on using automation for practical workflow improvements instead of automation for its own sake."
   />
+  <script>
+    document.documentElement.classList.add("js");
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
@@ -16,6 +19,7 @@
   />
   <link rel="stylesheet" href="../css/style.css" />
   <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+  <script src="../js/index.js" defer></script>
 </head>
 <body>
   <div class="terminal-shell">
@@ -28,7 +32,7 @@
       <div class="terminal-title">exor@dev: ~/blog/automation-workflows</div>
     </div>
 
-    <header class="hero">
+    <header class="hero" data-page-animate>
       <p class="prompt">exor@dev:~$ <span>cat automation-workflows.md</span></p>
       <h1>Automation That Actually Helps</h1>
       <p class="tagline">Automation • Scripting • Repeatable Work</p>
@@ -46,7 +50,7 @@
       </nav>
     </header>
 
-    <main class="content">
+    <main class="content" data-page-animate>
       <section class="panel">
         <p class="prompt">exor@dev:~$ <span>cat principles.txt</span></p>
         <div class="terminal-output">

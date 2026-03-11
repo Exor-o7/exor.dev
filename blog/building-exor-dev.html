@@ -8,6 +8,9 @@
     name="description"
     content="Notes on building Exor.dev into a simple multi-page portfolio with a terminal-inspired design."
   />
+  <script>
+    document.documentElement.classList.add("js");
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
@@ -16,6 +19,7 @@
   />
   <link rel="stylesheet" href="../css/style.css" />
   <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+  <script src="../js/index.js" defer></script>
 </head>
 <body>
   <div class="terminal-shell">
@@ -28,7 +32,7 @@
       <div class="terminal-title">exor@dev: ~/blog/building-exor-dev</div>
     </div>
 
-    <header class="hero">
+    <header class="hero" data-page-animate>
       <p class="prompt">exor@dev:~$ <span>cat building-exor-dev.md</span></p>
       <h1>Building Exor.dev</h1>
       <p class="tagline">Site Build Log • UX • Iteration</p>
@@ -46,7 +50,7 @@
       </nav>
     </header>
 
-    <main class="content">
+    <main class="content" data-page-animate>
       <section class="panel">
         <p class="prompt">exor@dev:~$ <span>cat why.txt</span></p>
         <p>

@@ -9,6 +9,10 @@
 	content="Resume for Conley Dannels covering systems, infrastructure, automation, and current technical direction."
 >
 
+<script>
+	document.documentElement.classList.add("js");
+</script>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
@@ -16,6 +20,7 @@
 
 <link rel="stylesheet" href="css/style.css">
 <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+<script src="js/index.js" defer></script>
 </head>
 
 <body>
@@ -31,9 +36,9 @@
 <div class="terminal-title">exor@dev: ~/resume</div>
 </div>
 
-<header class="hero">
+<header class="hero" data-page-animate>
 
-<p class="prompt">exor@dev:~$ <span>cat resume.txt</span></p>
+<p class="prompt">exor@dev:~$ <span>cd resume</span></p>
 
 <h1>Conley Dannels</h1>
 <p class="alias-line">alias: Exor</p>
@@ -56,7 +61,7 @@ with growing interest in DevOps practices and practical AI-assisted workflows.
 
 </header>
 
-<main class="content">
+<main class="content" data-page-animate>
 
 <section class="panel">
 <p class="prompt">exor@dev:~$ <span>cat contact.txt</span></p>

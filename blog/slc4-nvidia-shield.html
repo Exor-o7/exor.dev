@@ -8,6 +8,9 @@
     name="description"
     content="A short step by step guide to Sideload Channel 4 (SLC4) on Nvidia Shield."
   />
+  <script>
+    document.documentElement.classList.add("js");
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
@@ -16,6 +19,7 @@
   />
   <link rel="stylesheet" href="../css/style.css" />
   <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+  <script src="../js/index.js" defer></script>
 </head>
 <body>
   <div class="terminal-shell">
@@ -28,7 +32,7 @@
       <div class="terminal-title">exor@dev: ~/blog/slc4-nvidia-shield</div>
     </div>
 
-    <header class="hero">
+    <header class="hero" data-page-animate>
       <p class="prompt">exor@dev:~$ <span>cat slc4-nvidia-shield.md</span></p>
       <h1>SLC4 on Nvidia Shield</h1>
       <p class="tagline">Step by Step Guide • Sideloading • Nvidia Shield</p>
@@ -48,7 +52,7 @@
       </nav>
     </header>
 
-    <main class="content">
+    <main class="content" data-page-animate>
       <section class="panel">
         <p class="prompt">exor@dev:~$ <span>cat why.txt</span></p>
         <p>

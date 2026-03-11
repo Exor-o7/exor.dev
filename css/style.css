@@ -157,14 +157,14 @@ body {
   animation: blink 1s steps(1) infinite;
 }
 
-.js .hero-reveal,
-.js .content .panel {
+.js .hero[data-page-animate] > :not(.prompt),
+.js .content[data-page-animate] > .panel {
   opacity: 0;
   transform: translateY(10px);
 }
 
-.js .hero-reveal.is-visible,
-.js .content .panel.is-visible {
+.js .hero[data-page-animate] > :not(.prompt).is-visible,
+.js .content[data-page-animate] > .panel.is-visible {
   opacity: 1;
   transform: translateY(0);
   transition:

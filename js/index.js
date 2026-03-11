@@ -1,8 +1,12 @@
 document.addEventListener("DOMContentLoaded", () => {
   const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const command = document.querySelector(".hero .prompt span");
-  const heroRevealElements = document.querySelectorAll(".hero-reveal");
-  const panels = document.querySelectorAll(".content .panel");
+  const hero = document.querySelector(".hero[data-page-animate]");
+  const content = document.querySelector(".content[data-page-animate]");
+  const command = hero?.querySelector(".prompt span");
+  const heroRevealElements = hero
+    ? Array.from(hero.children).filter((element) => !element.classList.contains("prompt"))
+    : [];
+  const panels = content ? Array.from(content.querySelectorAll(":scope > .panel")) : [];
 
   if (!command) {
     return;
@@ -27,7 +31,6 @@ document.addEventListener("DOMContentLoaded", () => {
   if (prefersReducedMotion) {
     heroRevealElements.forEach((element) => element.classList.add("is-visible"));
     panels.forEach((panel) => panel.classList.add("is-visible"));
-    revealPanels();
     return;
   }
 

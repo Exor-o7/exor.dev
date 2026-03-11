@@ -8,6 +8,9 @@
     name="description"
     content="Homelab overview for Conley Dannels (Exor): self-hosted infrastructure, Docker services, storage, networking, and automation."
   />
+  <script>
+    document.documentElement.classList.add("js");
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
@@ -16,6 +19,7 @@
   />
   <link rel="stylesheet" href="css/style.css" />
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <script src="js/index.js" defer></script>
 </head>
 <body>
   <div class="terminal-shell">
@@ -28,8 +32,8 @@
       <div class="terminal-title">exor@dev: ~/homelab</div>
     </div>
 
-    <header class="hero">
-      <p class="prompt">exor@dev:~$ <span>cat homelab.md</span></p>
+    <header class="hero" data-page-animate>
+      <p class="prompt">exor@dev:~$ <span>cd homelab</span></p>
       <h1>Homelab</h1>
       <p class="alias-line">operator: Conley Dannels / Exor</p>
       <p class="role-line">Self-Hosting • Automation • Infrastructure</p>
@@ -46,7 +50,7 @@
       </nav>
     </header>
 
-    <main class="content">
+    <main class="content" data-page-animate>
       <section class="panel">
         <p class="prompt">exor@dev:~$ <span>cat homelab.txt</span></p>
         <p>
