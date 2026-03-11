@@ -365,6 +365,19 @@ h1 {
   padding-left: 22px;
 }
 
+.steps-list {
+  margin: 0;
+  padding-left: 22px;
+}
+
+.steps-list li + li {
+  margin-top: 12px;
+}
+
+.steps-list .code-block {
+  margin-top: 10px;
+}
+
 .focus-list li {
   margin-bottom: 4px;
 }

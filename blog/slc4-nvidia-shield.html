@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SLC4 on Nvidia Shield | Exor.dev</title>
+  <meta
+    name="description"
+    content="A short step by step guide to Sideload Channel 4 (SLC4) on Nvidia Shield."
+  />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+</head>
+<body>
+  <div class="terminal-shell">
+    <div class="terminal-bar">
+      <div class="terminal-buttons">
+        <span class="dot red"></span>
+        <span class="dot yellow"></span>
+        <span class="dot green"></span>
+      </div>
+      <div class="terminal-title">exor@dev: ~/blog/slc4-nvidia-shield</div>
+    </div>
+
+    <header class="hero">
+      <p class="prompt">exor@dev:~$ <span>cat slc4-nvidia-shield.md</span></p>
+      <h1>SLC4 on Nvidia Shield</h1>
+      <p class="tagline">Step by Step Guide • Sideloading • Nvidia Shield</p>
+      <p class="intro">
+        A straightforward guide for getting SLC4 running on an Nvidia Shield. This writeup focuses on the practical
+        steps, the tools needed, and the small details that can make sideloading smoother if you are doing it for the
+        first time.
+        
+      </p>
+
+      <nav class="main-nav" aria-label="Primary navigation">
+        <a href="/">~/home</a>
+        <a href="../projects.html">~/projects</a>
+        <a href="../homelab.html">~/homelab</a>
+        <a href="./" aria-current="page">~/blog</a>
+        <a href="../resume.html">~/resume</a>
+      </nav>
+    </header>
+
+    <main class="content">
+      <section class="panel">
+        <p class="prompt">exor@dev:~$ <span>cat why.txt</span></p>
+        <p>
+          I wrote this because setup guides for sideloading on Android TV devices are often either too vague or assume
+          too much prior knowledge. The goal here is to keep the process clear, repeatable, and easy to follow for
+          anyone trying to get SLC4 working on an Nvidia Shield without unnecessary guesswork.
+        </p>
+      </section>
+
+      <section class="panel">
+        <p class="prompt">exor@dev:~$ <span>cat requirements.txt</span></p>
+        <div class="terminal-output">
+          <p>Nvidia Shield with USB Debugging and Network Debugging enabled</p>
+          <p>A Windows PC with ADB available</p>
+          <p>The IP address of the Nvidia Shield on your network</p>
+          <p>SLC4 already installed on the Shield before setting it as the launcher</p>
+        </div>
+      </section>
+
+      <section class="panel">
+        <p class="prompt">exor@dev:~$ <span>cat steps.txt</span></p>
+        <ol class="steps-list">
+          <li>Enable <strong>USB Debugging</strong> and <strong>Network Debugging</strong> on the Nvidia Shield.</li>
+          <li>
+            If ADB is not already installed on your PC, download <strong>SDK Platform-Tools</strong>, extract it to
+            <strong>C:\</strong>, and verify it is working:
+            <pre class="code-block">cd C:\platform-tools
+.\adb.exe version</pre>
+          </li>
+          <li>
+            Start ADB and connect to the Shield:
+            <pre class="code-block">.\adb.exe devices
+.\adb.exe connect nvidiashieldIP</pre>
+          </li>
+          <li>Select <strong>Allow</strong> on the Nvidia Shield when the debugging prompt appears.</li>
+          <li>
+            Disable the default launcher:
+            <pre class="code-block">.\adb shell pm disable-user --user 0 com.google.android.tvlauncher</pre>
+          </li>
+          <li>
+            Set SLC4 as the HOME activity:
+            <pre class="code-block">.\adb shell cmd package set-home-activity dxidev.sideloadchannel4/.HomeActivity</pre>
+          </li>
+          <li>
+            Reboot the device:
+            <pre class="code-block">.\adb reboot</pre>
+          </li>
+          <li>After reboot, SLC4 should load as the main launcher.</li>
+        </ol>
+      </section>
+
+      <section class="panel">
+        <p class="prompt">exor@dev:~$ <span>cat restore.txt</span></p>
+        <p>If you want to restore the default launcher later, run:</p>
+        <pre class="code-block">.\adb shell pm enable com.google.android.tvlauncher</pre>
+      </section>
+
+      <section class="panel">
+        <p class="prompt">exor@dev:~$ <span>cat notes.txt</span></p>
+        <div class="terminal-output">
+          <p>Replace <strong>nvidiashieldIP</strong> with the actual IP address of your Shield.</p>
+          <p>If ADB cannot connect, confirm the Shield and PC are on the same network and that Network Debugging is still enabled.</p>
+          <p>Only disable the default launcher after SLC4 is already installed and ready to use.</p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>© 2026 Exor.dev • <a href="https://github.com/Exor-o7/exor.dev" target="_blank" rel="noopener noreferrer">source</a> <span class="cursor">█</span></p>
+    </footer>
+  </div>
+</body>
+</html>
