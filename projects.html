@@ -52,6 +52,24 @@
 
     <main class="content" data-page-animate>
       <section class="panel">
+        <p class="prompt">exor@dev:~$ <span>cat project-status.txt</span></p>
+        <div class="status-legend">
+          <div class="status-legend-item">
+            <span class="status-pill active">active</span>
+            <p>Currently being maintained, updated, or used as an active part of my ongoing work.</p>
+          </div>
+          <div class="status-legend-item">
+            <span class="status-pill in-progress">in progress</span>
+            <p>Still being built. Core direction is set, but features, polish, or stability are not finished yet.</p>
+          </div>
+          <div class="status-legend-item">
+            <span class="status-pill released">released</span>
+            <p>Published and usable in its current form, even if it is not under active development right now.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel">
         <p class="prompt">exor@dev:~$ <span>ls projects/</span></p>
         <div class="project-list">
           <article class="project-card">
@@ -71,8 +89,19 @@
           
           <article class="project-card">
             <div class="project-header">
+              <h2>Surge</h2>
+              <span class="status-pill active">active</span>
+            </div>
+            <p>
+              Surge is a native Android TV app for watching live sports streams through a custom, remote-friendly interface.
+              Built with Kotlin and Media3/ExoPlayer, it supports full-screen playback and a multi-stream mode for viewing up to four matches at once.
+            </p>
+          </article>
+
+          <article class="project-card">
+            <div class="project-header">
               <h2>HeadStart</h2>
-              <span class="status-pill active">released</span>
+              <span class="status-pill released">released</span>
             </div>
             <p>
               A mod for an educational game, ECO that helps new and returning players catch up to an active server.
@@ -87,7 +116,7 @@
           <article class="project-card">
             <div class="project-header">
               <h2>AutoConsume</h2>
-              <span class="status-pill active">released</span>
+              <span class="status-pill released">released</span>
             </div>
             <p>
               A C# utility for an educational game, ECO. It is designed to automate the food consumption when spending labor in the game.
@@ -101,7 +130,7 @@
           <article class="project-card">
             <div class="project-header">
               <h2>EconAdmin</h2>
-              <span class="status-pill active">released</span>
+              <span class="status-pill released">released</span>
             </div>
             <p>
               A C# admin toolkit for an educational game, ECO. Focused on economy management, account administration, and global
@@ -116,7 +145,7 @@
           <article class="project-card">
             <div class="project-header">
               <h2>GTNH-Transfer</h2>
-              <span class="status-pill active">released</span>
+              <span class="status-pill released">released</span>
             </div>
             <p>
               A Python utility for transferring data between GTNH instances. It is designed to simplify the migration process and ensure data integrity.

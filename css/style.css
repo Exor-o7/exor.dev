@@ -273,6 +273,29 @@ h1 {
   gap: 16px;
 }
 
+.status-legend {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.status-legend-item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 12px 14px;
+  border: 1px solid rgba(var(--accent-rgb), 0.16);
+  border-radius: 12px;
+  background: rgba(var(--accent-deep-rgb), 0.12);
+}
+
+.status-legend-item p {
+  margin: 0;
+  color: var(--muted);
+}
+
 .project-card {
   padding: 18px;
   border: 1px solid rgba(var(--accent-rgb), 0.22);
@@ -312,6 +335,12 @@ h1 {
   color: #a8f7bf;
   background: rgba(39, 201, 63, 0.12);
   border-color: rgba(39, 201, 63, 0.28);
+}
+
+.status-pill.released {
+  color: var(--accent-strong);
+  background: rgba(var(--accent-rgb), 0.12);
+  border-color: rgba(var(--accent-rgb), 0.30);
 }
 
 .status-pill.building,
@@ -460,6 +489,10 @@ h1 {
   .project-header {
     align-items: flex-start;
     flex-direction: column;
+  }
+
+  .status-legend {
+    grid-template-columns: 1fr;
   }
 
   .main-nav {
