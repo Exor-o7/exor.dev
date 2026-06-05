@@ -233,6 +233,14 @@ h1 {
   transform: translateY(-1px);
 }
 
+.main-nav a:focus-visible,
+.link-grid a:focus-visible,
+.panel a:focus-visible,
+.site-footer a:focus-visible {
+  outline: 2px solid var(--accent-strong);
+  outline-offset: 3px;
+}
+
 .main-nav a[aria-current="page"] {
   color: var(--accent-strong);
   border-color: rgba(var(--accent-rgb), 0.58);
@@ -467,6 +475,20 @@ h1 {
 @keyframes blink {
   50% {
     opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }
 

@@ -18,14 +18,16 @@ This repository contains the source for a static personal site focused on:
 - `index.html` — homepage / overview
 - `projects.html` — selected projects and active work
 - `homelab.html` — homelab overview and infrastructure notes
-- `blog.html` — planned writeups and technical posts
+- `blog/index.html` — writeups and technical posts
 - `resume.html` — resume and experience overview
+- `404.html` — custom not-found page
+- `robots.txt` / `sitemap.xml` — crawler and discovery metadata
 
 ## Stack
 
 - HTML
 - CSS
-- Javascript
+- JavaScript
 - JetBrains Mono
 - GitHub Pages / custom domain
 

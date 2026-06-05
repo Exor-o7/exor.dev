@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://exor.dev/sitemap.xml
