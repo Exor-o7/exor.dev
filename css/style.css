@@ -41,6 +41,25 @@ body {
   line-height: 1.7;
 }
 
+.skip-link {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  z-index: 10;
+  transform: translateY(-160%);
+  color: var(--shell);
+  background: var(--accent-strong);
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform 0.18s ease;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
 .terminal-shell {
   max-width: 980px;
   margin: 0 auto;
