@@ -30,9 +30,103 @@
   />
   <link rel="stylesheet" href="css/style.css" />
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <style>
+    body.home-page {
+      background:
+        linear-gradient(rgba(var(--accent-rgb), 0.045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(var(--accent-rgb), 0.045) 1px, transparent 1px),
+        radial-gradient(circle at top, rgba(var(--accent-rgb), 0.18), transparent 34%),
+        #000;
+      background-size: 32px 32px, 32px 32px, auto, auto;
+    }
+
+    .home-page .terminal-shell {
+      max-width: 1180px;
+    }
+
+    .home-page .section-heading {
+      margin: 0 0 18px;
+      color: var(--accent-strong);
+      font-size: clamp(1.35rem, 3vw, 1.8rem);
+    }
+
+    .featured-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .featured-grid .project-card {
+      display: flex;
+      min-width: 0;
+      flex-direction: column;
+    }
+
+    .featured-grid .project-card p {
+      color: var(--muted);
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin: 2px 0 18px;
+    }
+
+    .project-tags span {
+      padding: 3px 8px;
+      border: 1px solid rgba(var(--accent-rgb), 0.22);
+      border-radius: 999px;
+      color: var(--accent);
+      background: rgba(var(--accent-deep-rgb), 0.2);
+      font-size: 0.74rem;
+    }
+
+    .featured-grid .link-grid {
+      margin-top: auto;
+    }
+
+    .featured-more {
+      margin-top: 18px;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 28px;
+    }
+
+    .about-grid p,
+    .about-grid ul {
+      margin-top: 0;
+    }
+
+    .about-grid > div + div {
+      padding-left: 28px;
+      border-left: 1px solid rgba(var(--accent-rgb), 0.3);
+    }
+
+    @media (max-width: 850px) {
+      .featured-grid,
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .about-grid {
+        gap: 12px;
+      }
+
+      .about-grid > div + div {
+        padding-top: 20px;
+        padding-left: 0;
+        border-top: 1px solid rgba(var(--accent-rgb), 0.3);
+        border-left: 0;
+      }
+    }
+  </style>
   <script src="js/index.js" defer></script>
 </head>
-<body>
+<body class="home-page">
   <a class="skip-link" href="#main-content">Skip to content</a>
   <div class="terminal-shell">
     <div class="terminal-bar">
@@ -50,7 +144,7 @@
       <p class="alias-line hero-reveal">alias: Exor</p>
       <p class="tagline hero-reveal">Systems • Automation • Infrastructure</p>
       <p class="intro hero-reveal">
-        Computer science student exploring systems, infrastructure, and automation through hands-on experimentation.
+        I build practical tools, self-hosted systems, and software shaped by hands-on experimentation.
       </p>
 
       <nav class="main-nav hero-reveal" aria-label="Primary navigation">
@@ -64,54 +158,92 @@
 
     <main id="main-content" class="content" data-page-animate>
       <section class="panel">
-        <p class="prompt">exor@dev:~$ <span>cat about.txt</span></p>
-        <p>
-          I’m Conley Dannels, also known as Exor. I’m a computer science student focused on systems, infrastructure, and automation.
-          I created this site to document what I’m learning, share projects, and explore practical applications of technology through hands-on experimentation. Much of my work involves exploring Linux systems, containerization, scripting, and self-hosted services while building practical technical skills.
-          Exor.dev serves as both a portfolio of projects and a record of the experiments and ideas I’m working on as I continue developing my technical abilities.
-        </p>
-      </section>
-
-      <section class="panel">
-        <p class="prompt">exor@dev:~$ <span>cat current_focus.txt</span></p>
-        <ul class="focus-list">
-          <li>Systems and infrastructure fundamentals</li>
-          <li>Automation and scripting</li>
-          <li>Software engineering concepts</li>
-          <li>Homelab experimentation and learning</li>
-          <li>Open source and practical tooling</li>
-        </ul>
-      </section>
-
-      <section class="panel">
-        <p class="prompt">exor@dev:~$ <span>cat goals.txt</span></p>
-        <div class="terminal-output">
-          <p><span class="output-label">[build]</span> document projects and homelab work clearly</p>
-          <p><span class="output-label">[grow]</span> strengthen skills in systems, automation, and software engineering</p>
-          <p><span class="output-label">[explore]</span> explore AI and machine learning concepts as part of future development workflows</p>
+        <p class="prompt">exor@dev:~$ <span>cat about.txt &amp;&amp; cat focus.txt</span></p>
+        <div class="about-grid">
+          <div>
+            <h2 class="section-heading">About</h2>
+            <p>
+              I’m Conley Dannels, a computer science student building practical experience through Linux,
+              containerization, scripting, self-hosted services, and software projects.
+            </p>
+          </div>
+          <div>
+            <h2 class="section-heading">Current focus</h2>
+            <ul class="focus-list">
+              <li>Systems and infrastructure</li>
+              <li>Automation and scripting</li>
+              <li>Open-source tooling</li>
+            </ul>
+          </div>
         </div>
       </section>
 
       <section class="panel">
-        <p class="prompt">exor@dev:~$ <span>cat currently_building.txt</span></p>
-        <div class="terminal-output">
-          <p><span class="output-label">[site]</span> expanding Exor.dev into a clearer technical portfolio</p>
-          <p><span class="output-label">[lab]</span> documenting homelab experiments, services, and infrastructure decisions</p>
-          <p><span class="output-label">[script]</span> building practical automation scripts and utility tools</p>
+        <p class="prompt">exor@dev:~$ <span>ls featured/</span></p>
+        <h2 class="section-heading">Featured projects</h2>
+        <div class="featured-grid">
+          <article class="project-card">
+            <div class="project-header">
+              <h2>Twin Unity</h2>
+              <span class="status-pill active">active</span>
+            </div>
+            <p>A focused marketplace for browsing, buying, selling, and trading Pokémon cards.</p>
+            <div class="project-tags" aria-label="Project tags">
+              <span>web storefront</span>
+              <span>marketplace</span>
+              <span>Pokémon TCG</span>
+            </div>
+            <div class="link-grid compact-links">
+              <a href="https://twin-unity.vercel.app" target="_blank" rel="noopener noreferrer">live ↗</a>
+              <a href="https://github.com/Exor-o7/TwinUnity" target="_blank" rel="noopener noreferrer">source ↗</a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-header">
+              <h2>Janitorfin</h2>
+              <span class="status-pill active">active</span>
+            </div>
+            <p>A Jellyfin plugin that removes unwatched media and prevents Radarr or Sonarr from downloading it again.</p>
+            <div class="project-tags" aria-label="Project tags">
+              <span>Jellyfin</span>
+              <span>Radarr</span>
+              <span>Sonarr</span>
+            </div>
+            <div class="link-grid compact-links">
+              <a href="https://github.com/Exor-o7/Janitorfin/releases/latest" target="_blank" rel="noopener noreferrer">release ↗</a>
+              <a href="https://github.com/Exor-o7/Janitorfin" target="_blank" rel="noopener noreferrer">source ↗</a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-header">
+              <h2>HeadStart</h2>
+              <span class="status-pill released">released</span>
+            </div>
+            <p>An ECO server mod that helps new and returning players catch up with active communities.</p>
+            <div class="project-tags" aria-label="Project tags">
+              <span>ECO</span>
+              <span>server mod</span>
+              <span>player progression</span>
+            </div>
+            <div class="link-grid compact-links">
+              <a href="https://mod.io/g/eco/m/headstart" target="_blank" rel="noopener noreferrer">mod.io ↗</a>
+              <a href="https://github.com/Exor-o7/HeadStart" target="_blank" rel="noopener noreferrer">source ↗</a>
+            </div>
+          </article>
+        </div>
+        <div class="link-grid compact-links featured-more">
+          <a href="projects.html">view all projects →</a>
         </div>
       </section>
 
       <section class="panel">
         <p class="prompt">exor@dev:~$ <span>ls external/</span></p>
         <div class="link-grid">
-          <a href="https://github.com/Exor-o7" target="_blank" rel="noopener noreferrer">github</a>
-          <a href="https://www.linkedin.com/in/conleydannels/" target="_blank" rel="noopener noreferrer">linkedin</a>
+          <a href="https://github.com/Exor-o7" target="_blank" rel="noopener noreferrer">github ↗</a>
+          <a href="https://www.linkedin.com/in/conleydannels/" target="_blank" rel="noopener noreferrer">linkedin ↗</a>
         </div>
-      </section>
-
-      <section class="panel">
-        <p class="prompt">exor@dev:~$ <span>echo $STATUS</span></p>
-        <p class="status-line">Currently online at <strong>exor.dev</strong></p>
       </section>
     </main>
 
