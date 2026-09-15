@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Homelab | Exor.dev</title>
+  <meta
+    name="description"
+    content="Homelab overview for Conley Dannels (Exor): self-hosted infrastructure, Docker services, storage, networking, and automation."
+  />
+  <meta name="author" content="Conley Dannels" />
+  <meta name="theme-color" content="#030c54" />
+  <link rel="canonical" href="https://exor.dev/homelab.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Exor.dev" />
+  <meta property="og:title" content="Homelab | Exor.dev" />
+  <meta property="og:description" content="Homelab overview for Conley Dannels (Exor): self-hosted infrastructure, Docker services, storage, networking, and automation." />
+  <meta property="og:url" content="https://exor.dev/homelab.html" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Homelab | Exor.dev" />
+  <meta name="twitter:description" content="Homelab overview for Conley Dannels (Exor): self-hosted infrastructure, Docker services, storage, networking, and automation." />
+  <script>
+    document.documentElement.classList.add("js");
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <script src="js/index.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <div class="terminal-shell">
+    <div class="terminal-bar">
+      <div class="terminal-buttons" aria-hidden="true">
+        <span class="dot red"></span>
+        <span class="dot yellow"></span>
+        <span class="dot green"></span>
+      </div>
+      <div class="terminal-title">exor@dev: ~/homelab</div>
+    </div>
+
+    <header class="hero" data-page-animate>
+      <p class="prompt">exor@dev:~$ <span>cd homelab</span></p>
+      <h1>Homelab</h1>
+      <p class="alias-line">operator: Conley Dannels / Exor</p>
+      <p class="role-line">Self-Hosting • Automation • Infrastructure</p>
+      <p class="intro">
+        My homelab is where I build, test, break, fix, automate, and learn.
+      </p>
+
+      <nav class="main-nav" aria-label="Primary navigation">
+        <a href="/">~/home</a>
+        <a href="projects.html">~/projects</a>
+        <a href="homelab.html" aria-current="page">~/homelab</a>
+        <a href="blog/">~/blog</a>
+        <a href="resume.html">~/resume</a>
+      </nav>
+    </header>
+
+    <main id="main-content" class="content" data-page-animate>
+      <section class="panel">
+        <p class="prompt">exor@dev:~$ <span>cat homelab.txt</span></p>
+        <p>
+          I use this lab to gain hands-on experience with Linux, Docker Compose, storage, networking, backup strategy,
+          reverse proxies, media automation, scripting, and service troubleshooting. It is both a learning playground
+          and a production environment for services I rely on daily.
+        </p>
+      </section>
+
+      <section class="panel">
+        <p class="prompt">exor@dev:~$ <span>tree ~/homelab -L 2</span></p>
+        <pre class="code-block">homelab
+├── virtualization
+│   ├── Proxmox
+│   └── game servers
+├── storage
+│   ├── TrueNAS
+│   ├── datasets / shares
+│   └── media storage
+├── containers
+│   ├── Docker Compose
+│   ├── Jellyfin
+│   ├── Radarr
+│   ├── Sonarr
+│   ├── Jellyseerr
+│   ├── Jellystat
+│   └── supporting services
+├── networking
+│   ├── UniFi / UDM Pro
+│   ├── DNS / routing
+│   ├── reverse proxy
+│   └── remote access
+└── automation
+    ├── Bash
+    └── Python</pre>
+      </section>
+
+      <section class="panel">
+        <p class="prompt">exor@dev:~$ <span>cat virtualization.txt</span></p>
+        <div class="terminal-output">
+          <p>Proxmox is my general virtualization platform for hosting workloads, including game servers, and for learning infrastructure management.</p>
+          <p>I use virtualization to separate workloads, experiment safely, and build repeatable environments.</p>
+          <p>This gives me hands-on experience with infrastructure layout, resource planning, and service isolation.</p>
+        </div>
+      </section>
+
+      <section class="panel">
+        <p class="prompt">exor@dev:~$ <span>cat storage.txt</span></p>
+        <div class="terminal-output">
+          <p>TrueNAS is the storage backbone of my lab.</p>
+          <p>I use it for media storage, shared data, and service-related datasets.</p>
+          <p>Storage planning, reliability, and practical organization are a major part of how I run the environment.</p>
+        </div>
+      </section>
+
+      <section class="panel">
+        <p class="prompt">exor@dev:~$ <span>docker ps</span></p>
+        <div class="terminal-output">
+          <p><strong>Caddy</strong> — reverse proxy for Jellyfin and Seerr</p>
+          <p><strong>Seerr</strong> — request management for media users</p>
+          <p><strong>Jellyfin</strong> — media streaming and library management</p>
+          <p><strong>jfa-go</strong> — Jellyfin account invites and user management</p>
+          <p><strong>Jellystat</strong> — Jellyfin analytics, activity tracking, and usage insight</p>
+          <p><strong>Radarr</strong> — movie automation and release management</p>
+          <p><strong>Sonarr</strong> — TV automation and library workflow</p>
+          <p><strong>Bazarr</strong> — subtitle management and automation</p>
+          <p><strong>Prowlarr</strong> — indexer management and automation</p>
+          <p><strong>FlareSolverr</strong> — anti-bot challenge handling for automation requests</p>
+          <p><strong>Notifiarr</strong> — notification management and automation</p>
+        </div>
+      </section>
+
+      <section class="panel">
+        <p class="prompt">exor@dev:~$ <span>cat media-stack.txt</span></p>
+        <p>
+          One of the biggest parts of my homelab is a self-hosted media ecosystem. I work on reliability, release
+          quality, matching rules, subtitle preferences, storage behavior, and general automation. This has given me
+          practical experience in service orchestration, troubleshooting, file workflows, and quality-of-life
+          optimization for real users.
+        </p>
+      </section>
+
+      <section class="panel">
+        <p class="prompt">exor@dev:~$ <span>cat networking.txt</span></p>
+        <div class="terminal-output">
+          <p>UniFi and UDM Pro are part of my networking environment.</p>
+          <p>I work with routing, DNS, WAN-related configuration, and service exposure.</p>
+          <p>I also use reverse proxy concepts and domain-based access to publish services more cleanly.</p>
+        </div>
+      </section>
+
+      <section class="panel">
+        <p class="prompt">exor@dev:~$ <span>cat automation.txt</span></p>
+        <div class="terminal-output">
+          <p>I use Bash, Python, and other scripting tools to reduce repetitive work.</p>
+          <p>My automation efforts include update checks, service workflows, cleanup logic, and operational helpers.</p>
+          <p>The goal is always the same: reduce manual work, improve consistency, and make systems easier to manage.</p>
+        </div>
+      </section>
+
+      <section class="panel">
+        <p class="prompt">exor@dev:~$ <span>cat what_im_learning.txt</span></p>
+        <div class="terminal-output">
+          <p>Infrastructure design and service dependency planning</p>
+          <p>Docker-first workflows and maintainable Compose deployments</p>
+          <p>Operational troubleshooting and root-cause thinking</p>
+          <p>Storage strategy, backup planning, and reliability mindset</p>
+        </div>
+      </section>
+
+      <section class="panel">
+        <p class="prompt">exor@dev:~$ <span>echo $GOAL</span></p>
+        <p class="status-line">
+          Build a homelab that is not just cool to have, but useful for developing the skills needed for systems,
+          automation, and infrastructure work.
+        </p>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>© 2026 Exor.dev • <a href="https://github.com/Exor-o7/exor.dev" target="_blank" rel="noopener noreferrer">source</a> <span class="cursor" aria-hidden="true">█</span></p>
+    </footer>
+  </div>
+  <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "356855af959d4b7680e45cda10b4aa30"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>
