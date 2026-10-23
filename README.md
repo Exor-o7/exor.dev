@@ -51,7 +51,7 @@ Stop the server with Ctrl+C when finished.
 
 ## Layout and maintenance
 
-- `index.html` contains the final split homepage: supplied portrait artwork, introduction, experience highlights, featured text-only projects, technology stack, experience, and writing. The full searchable directory lives on `projects.html`.
+- `index.html` contains the final split homepage: supplied portrait artwork, introduction, experience highlights, featured text-only projects, and writing. The experience timeline and technology icons share a two-column section, with roles on the left and the tech stack on the right; they stack vertically on mobile. The full searchable directory lives on `projects.html`.
 - `css/style.css` retains the base visual system. `css/ronin.css` implements the final supplied homepage design and shared branding, including responsive layouts and reduced-motion support. `css/inner.css` decorates the nine interior pages and is loaded only by those pages.
 - `js/index.js` handles the mobile menu, project search/category filters, directory result counts, and search shortcut. Content and navigation remain available without JavaScript.
 - Project cards use `data-categories` for filter membership; visible card text and categories are included in search. Set `data-status` to `active`, `wip`, or `released`; cards are ordered Active → WIP → Released. Keep the static HTML in the same order for the no-JavaScript view. Update the initial Projects page count and homepage project highlight when adding cards; `scripts/check_site.py` checks they agree.

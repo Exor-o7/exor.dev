@@ -259,6 +259,7 @@
 }
 @media (max-width: 760px) {
   .inner-page .terminal-shell { padding-inline: 20px; }
+  .inner-page .site-footer { flex-wrap: nowrap; gap: 12px; }
   .inner-page .hero { padding: 30px 0 0; margin-bottom: 26px; }
   .inner-page .hero::before { inset: 0 0 0 40%; opacity: .5; }
   .inner-page .hero::after { top: 70px; right: 4px; width: 80px; height: 120px; opacity: .09; }
