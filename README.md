@@ -49,21 +49,41 @@ Stop the server with Ctrl+C when finished.
 
 ## Layout and maintenance
 
-- `index.html` contains the homepage: hero, core skills, one searchable project directory, current focus, experience, and writing.
-- `css/style.css` contains the shared visual system and responsive layouts.
-- `js/index.js` handles the mobile menu and project search/category filters. All content and navigation remain available without JavaScript.
-- Project cards use `data-categories` for filter membership; visible card text and categories are included in search. Set `data-status` to `active`, `wip`, or `released`; cards are ordered Active → WIP → Released. Keep the static HTML in the same order for the no-JavaScript view. Update the initial project count when adding cards.
+- `index.html` contains the final split homepage: supplied portrait artwork, introduction, experience highlights, featured text-only projects, technology stack, experience, and writing. The full searchable directory lives on `projects.html`.
+- `css/style.css` retains the base visual system. `css/ronin.css` implements the final supplied design and shared branding, including responsive layouts and reduced-motion support.
+- `js/index.js` handles the mobile menu, project search/category filters, directory result counts, and search shortcut. Content and navigation remain available without JavaScript.
+- Project cards use `data-categories` for filter membership; visible card text and categories are included in search. Set `data-status` to `active`, `wip`, or `released`; cards are ordered Active → WIP → Released. Keep the static HTML in the same order for the no-JavaScript view. Update the initial Projects page count and homepage project highlight when adding cards; `scripts/check_site.py` checks they agree.
 - Homepage detail links use stable IDs in `projects.html`. Skills and experience links target IDs in `resume.html`.
 - The shared header is static HTML. Keep its navigation consistent when editing pages in the root and `blog/` directories.
-- The decorative server-room background is an AI-generated WebP asset at `assets/server-room.webp`. Project artwork consists of inline SVG icons and CSS, not product screenshots.
+- The supplied ronin portrait, wordmark, and calligraphy are optimized WebP assets. Project cards have no thumbnails; their content remains selectable HTML.
 - Existing analytics and external fonts remain in place; fonts have system fallbacks. Local verification excludes production analytics.
 
-### Generated background
+### Previous background
 
 Generated with the built-in imagegen tool for this layout. Prompt:
 
 > Use case: photorealistic-natural. Asset type: decorative background for a personal IT portfolio website hero. A realistic premium editorial photograph of a dark modern server room, black server racks with tiny electric blue status LEDs, aisle vanishing into distance, restrained cool blue ceiling lights. Wide landscape 3:2 composition; server equipment details concentrated on right half, left half very dark with subtle silhouettes to allow white website text overlay. Deep midnight navy and black palette, realistic metal and glass texture, atmospheric understated blue light, crisp professional photography. No text, logos, people, watermark or user interface. Output only the background photograph.
 
+### Final supplied design
+
+The completed reference uses a large portrait illustration on the left and an HTML portfolio on the right. On desktop the art stays in view while content scrolls. Below 1100px it becomes a shorter artwork banner above the content. The navigation includes Resume as a primary destination on all screen sizes.
+
+The supplied artwork and branding are used directly, with WebP encoding and a display-size calligraphy variant. No replacement artwork or product screenshots were generated for this implementation.
+
+- `assets/ronin-portrait.webp`: latest supplied illustration with corrected banner lettering, 1122 × 1402, approximately 305 KiB.
+- `assets/exor-wordmark.webp`: supplied EXOR.dev wordmark, 2172 × 724, approximately 139 KiB. Its genuine transparency is retained, and CSS frames the original image without changing its lettering.
+- `assets/ronin-calligraphy.webp`: supplied 浪人 calligraphy, optimized to 512 × 768, approximately 266 KiB, with transparency retained.
+- `assets/server-room.webp`: original background retained for reference.
+
+Featured projects load from the Projects directory and select three cards in this order: work in progress, active, released. Existing featured order breaks ties within a status. The static fallback currently shows Internal Support Workspace, Bluetooth Videophone Remote, and Janitorfin for direct-file, offline, and no-JavaScript previews. Featured cards have no `data-project` attribute, so filters apply only to the full directory. The homepage highlight also refreshes from the directory and stays stable while filtering. The 15+ years highlight is supported by the resume's work history beginning in 2010. Concept-only project names, technologies, and audience metrics are not included.
+
+The earlier content edits remain intact: Bluetooth Videophone Remote and its Kotlin/Android/Bluetooth HID tags, project-specific lifecycle labels, the generic `work in progress` legend, and the Tier 3 resume title and Internal Support Workspace bullet. Existing IDs, project URLs, article and resume content, SEO metadata, and production analytics remain available.
+
+Header branding is shared across all root and blog pages. Keep the static headers and relative asset paths consistent. Shared body text is 18px, homepage copy is at least 16px, and small labels are at least 14px; the homepage hero title keeps its established size. Secondary-page content retains its readable layout, with a restrained decorative calligraphy mark and footer contact/profile icons and a copyright link to the source repository. The homepage introduces featured work, skills, experience, and writing; the full directory and filters are on the Projects page.
+
+For a local preview that omits production analytics, run `python scripts/preview.py` and open http://127.0.0.1:8765/. Append `?nojs=1` to verify navigation and content without JavaScript. Stop the server with Ctrl+C.
+
+Run `python scripts/check_site.py`, `node --check js/index.js`, and `git diff --check` for local structural checks. Also check desktop/mobile appearance, filtering, search, the search shortcut, and mobile keyboard navigation in a browser after changes. No build step or framework dependency is required.
 
 ## Original theme
 
