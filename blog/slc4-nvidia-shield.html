@@ -28,10 +28,11 @@
   />
   <link rel="stylesheet" href="../css/style.css" />
   <link rel="stylesheet" href="../css/ronin.css" />
+  <link rel="stylesheet" href="../css/inner.css" />
   <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
   <script src="../js/index.js" defer></script>
 </head>
-<body class="inner-page">
+<body class="inner-page article-page">
   <a class="skip-link" href="#main-content">Skip to content</a>
   <header class="site-header"><div class="header-inner">
   <a class="brand" href="../index.html" aria-label="Exor.dev, home"><img src="../assets/exor-wordmark.webp" width="2172" height="724" alt="Exor.dev"></a>
@@ -43,6 +44,8 @@
 
 
     <header class="hero">
+      <nav class="page-kicker" aria-label="Breadcrumb"><a href="../index.html">Home</a><span aria-hidden="true">/</span><a href="index.html">Blog</a><span aria-hidden="true">/</span><span>Article</span></nav>
+      <span class="hero-index" aria-hidden="true">04.1</span>
       <h1>SLC4 on Nvidia Shield</h1>
       <p class="tagline">Step by Step Guide • Sideloading • Nvidia Shield</p>
       <p class="intro">
@@ -51,13 +54,14 @@
         first time.
 
       </p>
-
-
+      <nav class="page-nav" aria-label="Page shortcuts"><a href="index.html">All writing</a><a href="../projects.html">Explore projects</a></nav>
     </header>
 
+    <div class="article-layout">
+      <aside class="article-guide" aria-label="Article sections"><h2>In this entry</h2><nav aria-label="Table of contents"><a href="#why-this-guide">Why this guide</a><a href="#requirements">Requirements</a><a href="#setup-steps">Setup steps</a><a href="#restore-the-default-launcher">Restore the default launcher</a><a href="#notes">Notes</a></nav></aside>
     <main id="main-content" class="content">
       <section class="panel">
-        <h2>Why this guide</h2>
+        <h2 id="why-this-guide">Why this guide</h2>
         <p>
           I wrote this because setup guides for sideloading on Android TV devices are often either too vague or assume
           too much prior knowledge. The goal here is to keep the process clear, repeatable, and easy to follow for
@@ -66,7 +70,7 @@
       </section>
 
       <section class="panel">
-        <h2>Requirements</h2>
+        <h2 id="requirements">Requirements</h2>
         <div class="terminal-output">
           <p>Nvidia Shield with USB Debugging and Network Debugging enabled</p>
           <p>A Windows PC with ADB available</p>
@@ -76,7 +80,7 @@
       </section>
 
       <section class="panel">
-        <h2>Setup steps</h2>
+        <h2 id="setup-steps">Setup steps</h2>
         <ol class="steps-list">
           <li>Enable <strong>USB Debugging</strong> and <strong>Network Debugging</strong> on the Nvidia Shield.</li>
           <li>
@@ -108,20 +112,22 @@
       </section>
 
       <section class="panel">
-        <h2>Restore the default launcher</h2>
+        <h2 id="restore-the-default-launcher">Restore the default launcher</h2>
         <p>If you want to restore the default launcher later, run:</p>
         <pre class="code-block">.\adb shell pm enable com.google.android.tvlauncher</pre>
       </section>
 
       <section class="panel">
-        <h2>Notes</h2>
+        <h2 id="notes">Notes</h2>
         <div class="terminal-output">
           <p>Replace <strong>nvidiashieldIP</strong> with the actual IP address of your Shield.</p>
           <p>If ADB cannot connect, confirm the Shield and PC are on the same network and that Network Debugging is still enabled.</p>
           <p>Only disable the default launcher after SLC4 is already installed and ready to use.</p>
         </div>
       </section>
+    <a class="article-return" href="index.html">Back to all writing</a>
     </main>
+    </div>
 
     <footer class="site-footer">
       <a class="footer-copyright" href="https://github.com/Exor-o7/exor.dev" aria-label="© 2026 Exor.dev — source code">© 2026 Exor.dev</a>

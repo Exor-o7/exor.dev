@@ -28,10 +28,11 @@
   />
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="css/ronin.css" />
+  <link rel="stylesheet" href="css/inner.css" />
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
   <script src="js/index.js" defer></script>
 </head>
-<body class="inner-page">
+<body class="inner-page homelab-page">
   <a class="skip-link" href="#main-content">Skip to content</a>
   <header class="site-header"><div class="header-inner">
   <a class="brand" href="index.html" aria-label="Exor.dev, home"><img src="assets/exor-wordmark.webp" width="2172" height="724" alt="Exor.dev"></a>
@@ -43,19 +44,20 @@
 
 
     <header class="hero">
+      <nav class="page-kicker" aria-label="Breadcrumb"><a href="index.html">Home</a><span aria-hidden="true">/</span><span>The homelab</span></nav>
+      <span class="hero-index" aria-hidden="true">03</span>
       <h1>Homelab</h1>
       <p class="alias-line">operator: Conley Dannels / Exor</p>
       <p class="role-line">Self-Hosting • Automation • Infrastructure</p>
       <p class="intro">
         My homelab is where I build, test, break, fix, automate, and learn.
       </p>
-
-
+      <nav class="page-nav" aria-label="Page shortcuts"><a href="#infrastructure-overview">The stack</a><a href="#containers-services">Services</a><a href="#what-i-m-learning">Learning</a></nav>
     </header>
 
     <main id="main-content" class="content">
-      <section class="panel">
-        <h2>About the lab</h2>
+      <section class="panel wide-panel">
+        <h2 id="about-the-lab">About the lab</h2>
         <p>
           I use this lab to gain hands-on experience with Linux, Docker Compose, storage, networking, backup strategy,
           reverse proxies, media automation, scripting, and service troubleshooting. It is both a learning playground
@@ -63,8 +65,10 @@
         </p>
       </section>
 
-      <section class="panel">
-        <h2>Infrastructure overview</h2>
+      <section class="panel wide-panel">
+        <h2 id="infrastructure-overview">Infrastructure overview</h2>
+        <figure class="lab-map"><figcaption class="lab-map-caption">One lab. Five areas of practice.</figcaption><ul class="lab-nodes"><li><svg class="section-symbol" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3 9 5-9 5-9-5Zm-9 9 9 5 9-5M3 16l9 5 9-5"/></svg><strong>Compute</strong><span>Proxmox</span><span>Game servers</span></li><li><svg class="section-symbol" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 4 16 4 16 0V5M4 12c0 4 16 4 16 0"/></svg><strong>Storage</strong><span>TrueNAS</span><span>Datasets / shares</span></li><li><svg class="section-symbol" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg><strong>Services</strong><span>Docker Compose</span><span>Media stack</span></li><li><svg class="section-symbol" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8" y="2" width="8" height="6" rx="1"/><rect x="2" y="16" width="7" height="6" rx="1"/><rect x="15" y="16" width="7" height="6" rx="1"/><path d="M12 8v4M5.5 16v-4h13v4"/></svg><strong>Network</strong><span>UniFi / UDM Pro</span><span>DNS / routing</span></li><li><svg class="section-symbol" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 7 5 5-5 5m8 0h6M3 3h18v18H3Z"/></svg><strong>Automation</strong><span>Bash</span><span>Python</span></li></ul></figure>
+        <details class="tree-details"><summary>View infrastructure directory</summary>
         <pre class="code-block">homelab
 ├── virtualization
 │   ├── Proxmox
@@ -89,10 +93,11 @@
 └── automation
     ├── Bash
     └── Python</pre>
+        </details>
       </section>
 
       <section class="panel">
-        <h2>Virtualization</h2>
+        <h2 id="virtualization"><svg class="section-symbol" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3 9 5-9 5-9-5Zm-9 9 9 5 9-5M3 16l9 5 9-5"/></svg>Virtualization</h2>
         <div class="terminal-output">
           <p>Proxmox is my general virtualization platform for hosting workloads, including game servers, and for learning infrastructure management.</p>
           <p>I use virtualization to separate workloads, experiment safely, and build repeatable environments.</p>
@@ -101,7 +106,7 @@
       </section>
 
       <section class="panel">
-        <h2>Storage</h2>
+        <h2 id="storage"><svg class="section-symbol" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 4 16 4 16 0V5M4 12c0 4 16 4 16 0"/></svg>Storage</h2>
         <div class="terminal-output">
           <p>TrueNAS is the storage backbone of my lab.</p>
           <p>I use it for media storage, shared data, and service-related datasets.</p>
@@ -109,9 +114,9 @@
         </div>
       </section>
 
-      <section class="panel">
-        <h2>Containers &amp; services</h2>
-        <div class="terminal-output">
+      <section class="panel wide-panel">
+        <h2 id="containers-services"><svg class="section-symbol" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>Containers &amp; services</h2>
+        <div class="terminal-output service-list">
           <p><strong>Caddy</strong> — reverse proxy for Jellyfin and Seerr</p>
           <p><strong>Seerr</strong> — request management for media users</p>
           <p><strong>Jellyfin</strong> — media streaming and library management</p>
@@ -127,7 +132,7 @@
       </section>
 
       <section class="panel">
-        <h2>Media stack</h2>
+        <h2 id="media-stack"><svg class="section-symbol" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="14" rx="2"/><path d="m10 8 6 3-6 3ZM8 22h8m-4-4v4"/></svg>Media stack</h2>
         <p>
           One of the biggest parts of my homelab is a self-hosted media ecosystem. I work on reliability, release
           quality, matching rules, subtitle preferences, storage behavior, and general automation. This has given me
@@ -137,7 +142,7 @@
       </section>
 
       <section class="panel">
-        <h2>Networking</h2>
+        <h2 id="networking"><svg class="section-symbol" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8" y="2" width="8" height="6" rx="1"/><rect x="2" y="16" width="7" height="6" rx="1"/><rect x="15" y="16" width="7" height="6" rx="1"/><path d="M12 8v4M5.5 16v-4h13v4"/></svg>Networking</h2>
         <div class="terminal-output">
           <p>UniFi and UDM Pro are part of my networking environment.</p>
           <p>I work with routing, DNS, WAN-related configuration, and service exposure.</p>
@@ -146,7 +151,7 @@
       </section>
 
       <section class="panel">
-        <h2>Automation</h2>
+        <h2 id="automation"><svg class="section-symbol" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 7 5 5-5 5m8 0h6M3 3h18v18H3Z"/></svg>Automation</h2>
         <div class="terminal-output">
           <p>I use Bash, Python, and other scripting tools to reduce repetitive work.</p>
           <p>My automation efforts include update checks, service workflows, cleanup logic, and operational helpers.</p>
@@ -155,7 +160,7 @@
       </section>
 
       <section class="panel">
-        <h2>What I’m learning</h2>
+        <h2 id="what-i-m-learning"><svg class="section-symbol" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m2 8 10-5 10 5-10 5Zm4 2v7q6 5 12 0v-7m4-2v9"/></svg>What I’m learning</h2>
         <div class="terminal-output">
           <p>Infrastructure design and service dependency planning</p>
           <p>Docker-first workflows and maintainable Compose deployments</p>
@@ -164,8 +169,8 @@
         </div>
       </section>
 
-      <section class="panel">
-        <h2>Goal</h2>
+      <section class="panel wide-panel endnote-panel">
+        <h2 id="goal">Goal</h2>
         <p class="status-line">
           Build a homelab that is not just cool to have, but useful for developing the skills needed for systems,
           automation, and infrastructure work.

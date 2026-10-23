@@ -29,11 +29,12 @@
 
 <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/ronin.css" />
+  <link rel="stylesheet" href="css/inner.css" />
 <link rel="icon" href="favicon.svg" type="image/svg+xml" />
 <script src="js/index.js" defer></script>
 </head>
 
-<body class="inner-page">
+<body class="inner-page resume-page">
 
 <a class="skip-link" href="#main-content">Skip to content</a>
 
@@ -48,6 +49,8 @@
 
 
 <header class="hero">
+      <nav class="page-kicker" aria-label="Breadcrumb"><a href="index.html">Home</a><span aria-hidden="true">/</span><span>Experience &amp; skills</span></nav>
+      <span class="hero-index" aria-hidden="true">01</span>
 
 
 <h1>Conley Dannels</h1>
@@ -60,15 +63,13 @@ Experienced System Administrator with 7 years of enterprise experience and over
 management, imaging/provisioning, and automation using Python, PowerShell, and Bash,
 with growing interest in DevOps practices and practical AI-assisted workflows.
 </p>
-
-
-
-</header>
+      <nav class="page-nav" aria-label="Page shortcuts"><a href="#contact">Get in touch</a><a href="#skills">Core skills</a><a href="#experience">Experience</a></nav>
+    </header>
 
 <main id="main-content" class="content">
 
-<section class="panel">
-  <h2>Contact</h2>
+<section class="panel resume-contact">
+  <h2 id="contact">Contact</h2>
 
 <p><strong>Location:</strong> Big Spring, TX</p>
 <p><strong>Email:</strong> <a href="mailto:conleydannels@gmail.com">conleydannels@gmail.com</a></p>
@@ -87,7 +88,7 @@ linkedin.com/in/conleydannels
 </section>
 
 <section class="panel" id="skills">
-  <h2>Core skills</h2>
+  <h2 id="core-skills">Core skills</h2>
 
 
 
@@ -117,8 +118,9 @@ Endpoint imaging/provisioning, troubleshooting, ticketing, VoIP, documentation</
 
 
 
+<article class="career-entry">
 <h3>Tech Support Tier 3 – Advanced Support & Internal Tools Development</h3>
-<p>Sorenson Communications (Remote) | May 2025 – Present</p>
+<p class="career-meta">Sorenson Communications (Remote) | May 2025 – Present</p>
 
 <ul>
 <li>Lead troubleshooting for escalated device issues across videophones, laptops, desktops, and tablets.</li>
@@ -127,30 +129,36 @@ Endpoint imaging/provisioning, troubleshooting, ticketing, VoIP, documentation</
 <li>Diagnose complex hardware, software, and interaction issues that require deeper investigation across teams.</li>
 <li>Work with engineering to document, reproduce, and clarify technical scenarios for faster resolution.</li>
 </ul>
+</article>
 
+<article class="career-entry">
 <h3>Tech Support Tier 2 - Device Support</h3>
-<p>Sorenson Communications (Remote) | Sept 2024 – Apr 2025</p>
+<p class="career-meta">Sorenson Communications (Remote) | Sept 2024 – Apr 2025</p>
 
 <ul>
 <li>Provided advanced technical assistance for videophones, computers, tablets, and mobile devices.</li>
 <li>Resolved configuration, connectivity, and performance issues across a broad device support environment.</li>
 <li>Created troubleshooting documentation that improved consistency for support teams.</li>
 </ul>
+</article>
 
+<article class="career-entry">
 <h3>System Administrator</h3>
-<p>Atkinson Aeronautics & Technology | Mar 2022 – Mar 2024</p>
+<p class="career-meta">Atkinson Aeronautics & Technology | Mar 2022 – Mar 2024</p>
 
-Managed cloud platforms such as Entra ID (Azure AD), Intune/Endpoint, Microsoft 365, SharePoint, Exchange, 3CX, Flowroute, and PreVeil. Provided remote support for multiple locations, including Virginia, Maryland, and other remote sites. Oversaw IT assets for 66 employees. Developed numerous Python and PowerShell scripts for automated application deployment via Intune/Endpoint. Designed, configured, installed, and monitored networks featuring Cisco Firepower, switches, and access points as well as UniFi network. Established and maintained TrueNAS, Proxmox, CUPS, Nextcloud, Wireguard VPN, and 3CX servers. Created and updated IT policies and standard operating procedures, IRT, SSP and ensured CMMC compliance. Led weekly IT meetings with leadership and HR.
+<p>Managed cloud platforms such as Entra ID (Azure AD), Intune/Endpoint, Microsoft 365, SharePoint, Exchange, 3CX, Flowroute, and PreVeil. Provided remote support for multiple locations, including Virginia, Maryland, and other remote sites. Oversaw IT assets for 66 employees. Developed numerous Python and PowerShell scripts for automated application deployment via Intune/Endpoint. Designed, configured, installed, and monitored networks featuring Cisco Firepower, switches, and access points as well as UniFi network. Established and maintained TrueNAS, Proxmox, CUPS, Nextcloud, Wireguard VPN, and 3CX servers. Created and updated IT policies and standard operating procedures, IRT, SSP and ensured CMMC compliance. Led weekly IT meetings with leadership and HR.</p>
 <ul>
 <li>Successfully set up a CUPS print server that allows users to print/scan without entering a user code for tracking purposes. CUPS automatically tracks who printed/scanned.</li>
 <li>Wrote a Python script with a GUI to install/reinstall/uninstall software with one click, making it more convenient for users.</li>
 <li>Wrote a PowerShell script that will automatically install printers and their drivers. Users no longer need to add printers themselves.</li>
 </ul>
+</article>
 
+<article class="career-entry">
 <h3>IT Equipment Coordinator</h3>
-<p>Amazon | Oct 2016 – Feb 2022</p>
+<p class="career-meta">Amazon | Oct 2016 – Feb 2022</p>
 
-Managed IT equipment, including receiving, deployment, orders, and equipment organization. Troubleshot IT equipment and networks, including Cisco and Commodity. Oversaw IT assets for 300-500 employees, coordinating projects with Senior Operation or Operation teams. Scheduled and escorted vendors to buildings. Managed, maintained, audited, and reconciled IT equipment. Contributed to sustaining and developing 5S standards within the IT department. Interacted with customers and handled trouble tickets.
+<p>Managed IT equipment, including receiving, deployment, orders, and equipment organization. Troubleshot IT equipment and networks, including Cisco and Commodity. Oversaw IT assets for 300-500 employees, coordinating projects with Senior Operation or Operation teams. Scheduled and escorted vendors to buildings. Managed, maintained, audited, and reconciled IT equipment. Contributed to sustaining and developing 5S standards within the IT department. Interacted with customers and handled trouble tickets.</p>
 <ul>
 <li>Amazonified customers' BYOD (Bring Your Own Device) into Amazon's network.</li>
 <li>Led and successfully upgraded Commodity switches to a newer version.</li>
@@ -158,21 +166,25 @@ Managed IT equipment, including receiving, deployment, orders, and equipment org
 <li>Contributed to a large project of a command center, containing multiple TVs, computers, and docking stations used for monitoring activity/performance.</li>
 <li>Contributed to a large project of Commodity lifecycle to replace all Commodity switches with Cisco switches. Built multiple racks with Cisco L3 Switches, L2 Switches, UPS, as well as configured them.</li>
 </ul>
+</article>
 
+<article class="career-entry">
 <h3>Computer Technician</h3>
-<p>Volunteer | Jan 2010 – Oct 2016</p>
+<p class="career-meta">Volunteer | Jan 2010 – Oct 2016</p>
 
-Installed computers, consumer-grade routers, and switches. Coordinated with third-party companies to install network infrastructure based on my design. Trained customers on how to use new software or hardware. Tested and evaluated the equipment to ensure that it is working as intended. Built computers, troubleshooted software, hardware, and networks. Provided customer service as well as tech support both in person and remotely. Planned, installed, configured customer-grade network in over 40 customers.
+<p>Installed computers, consumer-grade routers, and switches. Coordinated with third-party companies to install network infrastructure based on my design. Trained customers on how to use new software or hardware. Tested and evaluated the equipment to ensure that it is working as intended. Built computers, troubleshooted software, hardware, and networks. Provided customer service as well as tech support both in person and remotely. Planned, installed, configured customer-grade network in over 40 customers.</p>
 <ul>
 <li>Provided technical support for residential and small-business clients.</li>
 <li>Installed and optimized wired and wireless networks based on client needs and budgets.</li>
 <li>Performed OS installs, malware remediation, and hardware repair work.</li>
 </ul>
+</article>
+
 
 </section>
 
-<section class="panel">
-  <h2>Education</h2>
+<section class="panel resume-detail">
+  <h2 id="education">Education</h2>
 
 
 <p>
@@ -183,8 +195,8 @@ Expected Graduation: December 2027
 
 </section>
 
-<section class="panel">
-  <h2>Certifications</h2>
+<section class="panel resume-detail">
+  <h2 id="certifications">Certifications</h2>
 
 
 <ul>
@@ -193,8 +205,8 @@ Expected Graduation: December 2027
 
 </section>
 
-<section class="panel">
-  <h2>Languages</h2>
+<section class="panel resume-detail">
+  <h2 id="languages">Languages</h2>
 
 
 <ul>

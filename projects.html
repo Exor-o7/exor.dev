@@ -28,10 +28,11 @@
   />
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="css/ronin.css" />
+  <link rel="stylesheet" href="css/inner.css" />
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
   <script src="js/index.js" defer></script>
 </head>
-<body class="inner-page">
+<body class="inner-page projects-page">
   <a class="skip-link" href="#main-content">Skip to content</a>
   <header class="site-header"><div class="header-inner">
   <a class="brand" href="index.html" aria-label="Exor.dev, home"><img src="assets/exor-wordmark.webp" width="2172" height="724" alt="Exor.dev"></a>
@@ -43,19 +44,20 @@
 
 
     <header class="hero">
+      <nav class="page-kicker" aria-label="Breadcrumb"><a href="index.html">Home</a><span aria-hidden="true">/</span><span>Selected work</span></nav>
+      <span class="hero-index" aria-hidden="true">02</span>
       <h1>Projects</h1>
       <p class="tagline">Practical Builds • Experiments • Ongoing Work</p>
       <p class="intro">
         A running list of projects, technical experiments, and work-in-progress ideas centered around systems,
         automation, and homelab infrastructure.
       </p>
-
-
+      <nav class="page-nav" aria-label="Page shortcuts"><a href="#project-status">The lifecycle</a><a href="#projects-heading">Browse projects</a><a href="#more-on-github">More on GitHub</a></nav>
     </header>
 
     <main id="main-content" class="content">
-      <section class="panel">
-        <h2>Project status</h2>
+      <section class="panel status-panel">
+        <h2 id="project-status">Project status</h2>
         <div class="status-legend">
           <div class="status-legend-item">
             <span class="status-pill active">active</span>
@@ -72,7 +74,7 @@
         </div>
       </section>
 
-      <section class="panel">
+      <section class="panel directory-panel">
         <div class="section-top"><h2 id="projects-heading">Project directory</h2><span class="project-count" id="project-count" role="status" aria-live="polite" aria-atomic="true">11 projects</span></div>
         <div class="project-controls" hidden><div class="project-filters" role="group" aria-label="Filter projects by category"><button type="button" data-filter="All" aria-pressed="true">All</button><button type="button" data-filter="Infrastructure" aria-pressed="false">Infrastructure</button><button type="button" data-filter="Automation" aria-pressed="false">Automation</button><button type="button" data-filter="Applications" aria-pressed="false">Applications</button><button type="button" data-filter="Gaming" aria-pressed="false">Gaming</button><button type="button" data-filter="Homelab" aria-pressed="false">Homelab</button><button type="button" data-filter="Learning" aria-pressed="false">Learning</button></div><label class="project-search"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7"/><path d="m15 15 6 6"/></svg><span class="sr-only">Search projects</span><input type="search" id="project-search" placeholder="Search projects…" aria-controls="project-grid" autocomplete="off"></label></div>
         <div class="project-list" id="project-grid">
@@ -233,8 +235,8 @@
         <div class="empty-state" id="empty-state" hidden><h3>No matching projects</h3><p>Try another search or explore all the projects.</p><button type="button" class="button button-secondary" id="reset-projects">Clear filters</button></div>
       </section>
 
-      <section class="panel">
-        <h2>More on GitHub</h2>
+      <section class="panel endnote-panel">
+        <h2 id="more-on-github">More on GitHub</h2>
         <p>
           More source code, experiments, and active development live on GitHub.
         </p>

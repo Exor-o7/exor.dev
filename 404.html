@@ -29,10 +29,11 @@
 	/>
 	<link rel="stylesheet" href="/css/style.css" />
   <link rel="stylesheet" href="/css/ronin.css" />
+  <link rel="stylesheet" href="/css/inner.css" />
 	<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
 	<script src="/js/index.js" defer></script>
 </head>
-<body class="inner-page">
+<body class="inner-page not-found-page">
 	<a class="skip-link" href="#main-content">Skip to content</a>
 	<header class="site-header"><div class="header-inner">
   <a class="brand" href="/index.html" aria-label="Exor.dev, home"><img src="/assets/exor-wordmark.webp" width="2172" height="724" alt="Exor.dev"></a>
@@ -44,24 +45,25 @@
 
 
 		<header class="hero">
+      <nav class="page-kicker" aria-label="Breadcrumb"><a href="/index.html">Home</a><span aria-hidden="true">/</span><span>A missing path</span></nav>
+      <span class="hero-index" aria-hidden="true">404</span>
 			<h1>404</h1>
 			<p class="tagline">Page Not Found • Route Missing • Return Available</p>
 			<p class="intro">
 				The page you were trying to reach does not exist here, or the route has changed while the site is still being
 				built out.
 			</p>
-
-
-		</header>
+      <nav class="page-nav" aria-label="Page shortcuts"><a href="/projects.html">Explore projects</a><a href="/">Return home</a></nav>
+    </header>
 
 		<main id="main-content" class="content">
 			<section class="panel">
-			  <h2>Route status</h2>
+			  <h2 id="route-status">Route status</h2>
 				<p class="status-line">Current route: <strong>not found</strong></p>
 			</section>
 
 			<section class="panel">
-			  <h2>Explore the site</h2>
+			  <h2 id="explore-the-site">Explore the site</h2>
 				<div class="link-grid">
 					<a href="/">home</a>
 					<a href="/projects.html">projects</a>
@@ -71,8 +73,8 @@
 				</div>
 			</section>
 
-			<section class="panel">
-			  <h2>Next steps</h2>
+			<section class="panel endnote-panel">
+			  <h2 id="next-steps">Next steps</h2>
 				<p>
 					Head back to the homepage or continue through the main sections above. The site is still evolving, so some
 					routes may appear before they are fully linked.

@@ -28,10 +28,11 @@
   />
   <link rel="stylesheet" href="../css/style.css" />
   <link rel="stylesheet" href="../css/ronin.css" />
+  <link rel="stylesheet" href="../css/inner.css" />
   <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
   <script src="../js/index.js" defer></script>
 </head>
-<body class="inner-page">
+<body class="inner-page article-page">
   <a class="skip-link" href="#main-content">Skip to content</a>
   <header class="site-header"><div class="header-inner">
   <a class="brand" href="../index.html" aria-label="Exor.dev, home"><img src="../assets/exor-wordmark.webp" width="2172" height="724" alt="Exor.dev"></a>
@@ -43,19 +44,22 @@
 
 
     <header class="hero">
+      <nav class="page-kicker" aria-label="Breadcrumb"><a href="../index.html">Home</a><span aria-hidden="true">/</span><a href="index.html">Blog</a><span aria-hidden="true">/</span><span>Article</span></nav>
+      <span class="hero-index" aria-hidden="true">04.3</span>
       <h1>Homelab Notes: What I Actually Learn</h1>
       <p class="tagline">Homelab • Reliability • Operations</p>
       <p class="intro">
         A homelab is useful because it teaches more than how to deploy services. It teaches troubleshooting, planning,
         tradeoffs, backup thinking, and the habit of improving systems after they break.
       </p>
-
-
+      <nav class="page-nav" aria-label="Page shortcuts"><a href="index.html">All writing</a><a href="../projects.html">Explore projects</a></nav>
     </header>
 
+    <div class="article-layout">
+      <aside class="article-guide" aria-label="Article sections"><h2>In this entry</h2><nav aria-label="Table of contents"><a href="#lessons-learned">Lessons learned</a><a href="#why-it-matters">Why it matters</a></nav></aside>
     <main id="main-content" class="content">
       <section class="panel">
-        <h2>Lessons learned</h2>
+        <h2 id="lessons-learned">Lessons learned</h2>
         <div class="terminal-output">
           <p>Real infrastructure work means understanding service dependencies, failure points, and recovery paths.</p>
           <p>Self-hosting creates practical pressure to care about storage, uptime, access, updates, and backups.</p>
@@ -64,13 +68,15 @@
       </section>
 
       <section class="panel">
-        <h2>Why it matters</h2>
+        <h2 id="why-it-matters">Why it matters</h2>
         <p>
           That is why the homelab matters to me: it turns theory into repetition, repetition into judgment, and judgment
           into better systems thinking.
         </p>
       </section>
+    <a class="article-return" href="index.html">Back to all writing</a>
     </main>
+    </div>
 
     <footer class="site-footer">
       <a class="footer-copyright" href="https://github.com/Exor-o7/exor.dev" aria-label="© 2026 Exor.dev — source code">© 2026 Exor.dev</a>

@@ -28,10 +28,11 @@
   />
   <link rel="stylesheet" href="../css/style.css" />
   <link rel="stylesheet" href="../css/ronin.css" />
+  <link rel="stylesheet" href="../css/inner.css" />
   <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
   <script src="../js/index.js" defer></script>
 </head>
-<body class="inner-page">
+<body class="inner-page article-page">
   <a class="skip-link" href="#main-content">Skip to content</a>
   <header class="site-header"><div class="header-inner">
   <a class="brand" href="../index.html" aria-label="Exor.dev, home"><img src="../assets/exor-wordmark.webp" width="2172" height="724" alt="Exor.dev"></a>
@@ -43,19 +44,22 @@
 
 
     <header class="hero">
+      <nav class="page-kicker" aria-label="Breadcrumb"><a href="../index.html">Home</a><span aria-hidden="true">/</span><a href="index.html">Blog</a><span aria-hidden="true">/</span><span>Article</span></nav>
+      <span class="hero-index" aria-hidden="true">04.2</span>
       <h1>Building Exor.dev</h1>
       <p class="tagline">Site Build Log • UX • Iteration</p>
       <p class="intro">
         Exor.dev started as a single static page and is gradually being expanded into a clearer multi-page portfolio.
         The goal is to keep it simple, fast, and easy to update while still making the site feel intentional.
       </p>
-
-
+      <nav class="page-nav" aria-label="Page shortcuts"><a href="index.html">All writing</a><a href="../projects.html">Explore projects</a></nav>
     </header>
 
+    <div class="article-layout">
+      <aside class="article-guide" aria-label="Article sections"><h2>In this entry</h2><nav aria-label="Table of contents"><a href="#why-i-built-this-site">Why I built this site</a><a href="#what-changed">What changed</a><a href="#what-s-next">What’s next</a></nav></aside>
     <main id="main-content" class="content">
       <section class="panel">
-        <h2>Why I built this site</h2>
+        <h2 id="why-i-built-this-site">Why I built this site</h2>
         <p>
           The site exists to show direction, active work, and technical growth without relying on a heavy framework or a
           complicated build process. Static HTML and CSS are enough for this stage, and they make iteration fast.
@@ -63,7 +67,7 @@
       </section>
 
       <section class="panel">
-        <h2>What changed</h2>
+        <h2 id="what-changed">What changed</h2>
         <div class="terminal-output">
           <p>Moved from a single homepage toward a fuller structure with projects, homelab, blog, resume, and 404 support.</p>
           <p>Kept the visual identity centered on a terminal-inspired layout that non-technical visitors can still read quickly.</p>
@@ -72,13 +76,15 @@
       </section>
 
       <section class="panel">
-        <h2>What’s next</h2>
+        <h2 id="what-s-next">What’s next</h2>
         <p>
           The next improvements are deeper content, more project-specific detail, and a growing set of notes that show
           how the site evolves alongside the work it documents.
         </p>
       </section>
+    <a class="article-return" href="index.html">Back to all writing</a>
     </main>
+    </div>
 
     <footer class="site-footer">
       <a class="footer-copyright" href="https://github.com/Exor-o7/exor.dev" aria-label="© 2026 Exor.dev — source code">© 2026 Exor.dev</a>

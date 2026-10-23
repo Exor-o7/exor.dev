@@ -1,0 +1,267 @@
+/* Interior pages: the same ronin identity, with room for work and writing. */
+.inner-page {
+  background: radial-gradient(ellipse at 95% 8%, #10324766, transparent 42%), var(--ronin-bg);
+}
+.inner-page .terminal-shell { max-width: 1280px; padding-inline: 40px; }
+.inner-page .hero {
+  padding: 44px 240px 0 0;
+  margin-bottom: 34px;
+  border-bottom-color: #2b4b5e;
+  background: radial-gradient(ellipse at right, #15476740, transparent 65%);
+}
+.inner-page .hero::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 0 0 0 55%;
+  background-image: linear-gradient(#45789618 1px, transparent 1px), linear-gradient(90deg, #45789618 1px, transparent 1px);
+  background-size: 32px 32px;
+  mask-image: linear-gradient(90deg, transparent, #000);
+  pointer-events: none;
+}
+.inner-page .hero::after {
+  width: 142px;
+  height: 213px;
+  top: 60px;
+  right: 38px;
+  opacity: .3;
+}
+.page-kicker {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  margin: 0 0 30px;
+  color: #a9c3d5;
+  font: 14px/1.7 var(--mono);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+.page-kicker > span[aria-hidden] { color: #52758b; }
+.page-kicker a { color: #a9c3d5; }
+.page-kicker a:hover { color: var(--accent); }
+.hero-index {
+  position: absolute;
+  right: 0;
+  top: 25px;
+  font: 14px/1.5 var(--mono);
+  color: #8dabbf;
+  letter-spacing: 2px;
+}
+.inner-page h1 { font-size: clamp(42px, 5.5vw, 70px); line-height: 1.08; letter-spacing: -2.5px; margin: 0 0 20px; }
+.inner-page .hero .tagline, .inner-page .hero .role-line { font: 14px/1.9 var(--mono); letter-spacing: .4px; color: var(--accent); }
+.inner-page .hero .alias-line { font: 14px/1.8 var(--mono); color: #a9c0d0; }
+.inner-page .intro { max-width: 780px; color: #b8ccd9; font-size: 18px; line-height: 1.85; }
+.page-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 28px;
+  padding: 22px 0 20px;
+  margin-top: 26px;
+  border-top: 1px solid #244658;
+  font: 14px/1.7 var(--mono);
+}
+.page-nav a { display: inline-flex; align-items: center; gap: 9px; min-height: 36px; color: #c1d5e3; }
+.page-nav a::after { content: "↗"; color: var(--accent); }
+.page-nav a:hover { color: var(--accent); }
+.inner-page .content { padding: 0 0 24px; }
+.inner-page .panel {
+  min-width: 0;
+  padding: 30px;
+  border-color: #234353;
+  background: linear-gradient(135deg, #0b2230d9, #061620ed);
+  border-radius: 6px;
+  margin-bottom: 24px;
+}
+.inner-page .panel > h2 { display: flex; align-items: center; gap: 12px; font-size: 22px; letter-spacing: -.4px; }
+.inner-page .panel > h2::before { content: ""; width: 3px; height: 18px; background: var(--accent); flex: 0 0 auto; }
+.inner-page .panel p, .inner-page .panel li { line-height: 1.85; }
+.inner-page .panel a:not(.status-pill) { text-underline-offset: 5px; }
+.inner-page .link-grid a { min-height: 44px; align-items: center; border-radius: 3px; background: #102b3b; }
+.inner-page .link-grid a:hover { border-color: var(--accent); background: #16384b; text-decoration: none; }
+.inner-page .site-footer { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; padding: 24px 0 32px; }
+.inner-page .site-footer nav { margin: 0; }
+.inner-page :is(section[id], h2[id], h3[id]) { scroll-margin-top: 110px; }
+
+/* The directory stays text led; color and borders indicate project lifecycle. */
+.projects-page .directory-panel, .blog-page .posts-panel { padding: 0; border: 0; background: none; }
+.projects-page .section-top { padding: 6px 0 18px; }
+.projects-page .section-top h2 { font-size: 24px; }
+.projects-page .project-count { padding: 5px 12px; color: #c4dbe8; border: 1px solid #294b60; border-radius: 20px; background: #0a2231; }
+.projects-page .status-panel { padding: 23px 26px; }
+.projects-page .status-panel > h2 { font: 14px/1.8 var(--mono); text-transform: uppercase; letter-spacing: 1.5px; }
+.projects-page .status-legend { gap: 24px; }
+.projects-page .status-legend-item { border: 0; border-left: 1px solid #2c4b5d; border-radius: 0; padding: 0 0 0 18px; background: none; }
+.projects-page .status-legend-item:first-child { border-left: 0; padding-left: 0; }
+.projects-page .status-legend-item p { font-size: 16px; line-height: 1.7; }
+.projects-page .project-controls { padding: 18px; border: 1px solid #234353; border-radius: 5px; background: #081c28; margin-bottom: 24px; }
+.projects-page .project-filters { flex-wrap: wrap; }
+.projects-page .project-filters button { min-height: 44px; }
+.projects-page .project-search { flex: 1 1 100%; margin: 0; background: #04121d; }
+.projects-page .project-search input { font-size: 16px; }
+.projects-page .project-list { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+.inner-page .project-card {
+  min-width: 0;
+  padding: 27px;
+  border-color: #29495c;
+  border-radius: 5px;
+  background: linear-gradient(135deg, #0c2432, #061620);
+  transition: border-color .18s, background .18s;
+}
+.inner-page .project-card:hover { border-color: #4c809d; background: linear-gradient(135deg, #0e2b3d, #081b29); }
+.projects-page .project-card { display: flex; flex-direction: column; border-top: 2px solid #4c8baa; }
+.projects-page .project-card[data-status="active"] { border-top-color: #61b99b; }
+.projects-page .project-card[data-status="wip"] { border-top-color: #c4a46a; }
+.inner-page .project-header { align-items: flex-start; gap: 14px; }
+.inner-page .project-header h3 { font-size: 22px; margin: 0; }
+.projects-page .project-tags { margin: 18px 0 0; }
+.projects-page .project-tags span { background: #0a2637; border-color: #2b4e63; padding: 3px 9px; font-size: 14px; }
+.projects-page .project-card p { margin: 18px 0; font-size: 16px; }
+.projects-page .project-card .link-grid { margin-top: auto; padding-top: 8px; }
+.projects-page .project-card:has(:target) { border-color: var(--accent); outline: 1px solid var(--accent); outline-offset: 4px; }
+.inner-page .endnote-panel { border-left: 3px solid var(--accent); background: linear-gradient(100deg, #103247, #071a26); }
+
+/* A lab notebook, with an overview of the real stack and paired subsystem cards. */
+.homelab-page .content { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+.homelab-page .panel { margin: 0; }
+.homelab-page .wide-panel { grid-column: 1 / -1; }
+.section-symbol { width: 24px; height: 24px; color: var(--accent); flex-shrink: 0; }
+.homelab-page .panel > h2:has(.section-symbol)::before { content: none; }
+.lab-map { margin: 24px 0; }
+.lab-map-caption { font: 14px/1.8 var(--mono); text-transform: uppercase; letter-spacing: 1.5px; color: #a9c5d7; margin-bottom: 22px; }
+.lab-nodes { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); list-style: none; padding: 22px 0 0; margin: 0; position: relative; gap: 12px; }
+.lab-nodes::before { content: ""; position: absolute; left: 10%; right: 10%; top: 0; height: 1px; background: #38667f; }
+.lab-nodes li { position: relative; border: 1px solid #31566b; padding: 20px 13px; background: #071824; border-radius: 4px; }
+.lab-nodes li::before { content: ""; position: absolute; height: 22px; width: 1px; top: -23px; left: 50%; background: #38667f; }
+.lab-nodes .section-symbol { display: block; margin-bottom: 16px; }
+.lab-nodes strong { display: block; font-size: 16px; margin-bottom: 8px; }
+.lab-nodes span { display: block; font: 14px/1.8 var(--mono); color: #a6c3d5; }
+.tree-details { border-top: 1px solid #284b60; padding-top: 18px; margin-top: 26px; }
+.tree-details summary { cursor: pointer; color: #b5d9ed; font: 14px/1.8 var(--mono); padding: 6px 0; }
+.tree-details summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 5px; }
+.tree-details .code-block { margin: 18px 0 0; }
+.service-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 26px; }
+.service-list p { border-bottom: 1px solid #213e50; padding: 13px 0; margin: 0; font-size: 16px; }
+.service-list strong { color: #d0e9f7; }
+.homelab-page .endnote-panel { margin-bottom: 8px; }
+
+/* The resume keeps its source reading order while experience sits beside skills. */
+.resume-page .content { display: grid; grid-template-columns: minmax(0, 320px) minmax(0, 1fr); gap: 24px; align-items: start; }
+.resume-page .panel { margin: 0; }
+.resume-page .resume-contact { grid-column: 1; grid-row: 1; }
+.resume-page #skills { grid-column: 1; grid-row: 2; }
+.resume-page #experience { grid-column: 2; grid-row: 1 / span 5; }
+.resume-page .resume-detail { grid-column: 1; }
+.resume-page .resume-contact p { font-size: 16px; overflow-wrap: anywhere; }
+.resume-page #skills p { padding-bottom: 18px; margin-bottom: 18px; border-bottom: 1px solid #234353; font-size: 16px; }
+.resume-page #skills p:last-child { padding-bottom: 0; margin-bottom: 0; border-bottom: 0; }
+.resume-page #skills strong { display: block; margin-bottom: 8px; }
+.career-entry { position: relative; margin: 0 0 0 5px; padding: 0 0 32px 25px; border-left: 1px solid #36566b; }
+.career-entry::before { content: ""; position: absolute; top: 7px; left: -5px; width: 9px; height: 9px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 5px #102b3c; }
+.career-entry:last-child { padding-bottom: 0; border-left-color: transparent; }
+.career-entry h3 { margin: 0 0 12px; font-size: 20px; line-height: 1.5; }
+.resume-page .career-entry .career-meta { color: #8dc5e4; font: 14px/1.9 var(--mono); margin-bottom: 20px; }
+.career-entry ul { padding-left: 20px; }
+.career-entry li + li { margin-top: 10px; }
+.career-entry p, .career-entry li, .resume-detail p, .resume-detail li { font-size: 16px; }
+.resume-detail ul { padding-left: 20px; }
+
+/* Writing: index cards, then a narrow article column with a section guide. */
+.blog-page .project-list { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; }
+.blog-page .posts-panel > h2 { margin-block: 36px 22px; }
+.blog-page .project-card { display: flex; flex-direction: column; padding: 30px; }
+.post-category { display: flex; align-items: center; gap: 10px; font: 14px/1.7 var(--mono); color: #9ac7e1; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 26px; }
+.post-category::before { content: ""; width: 18px; height: 1px; background: var(--accent); }
+.blog-page .project-card .project-header h3 { font-size: 25px; line-height: 1.4; }
+.blog-page .project-card p { margin: 18px 0 24px; font-size: 16px; }
+.blog-page .project-card .link-grid { margin-top: auto; padding-top: 20px; border-top: 1px solid #29495c; }
+.blog-page .project-card .link-grid a { padding: 0; border: 0; background: none; gap: 18px; }
+.blog-page .project-card .link-grid a::after { content: "↗"; }
+.article-page .terminal-shell { max-width: 1180px; }
+.article-page .hero { padding-right: 190px; }
+.article-page h1 { font-size: clamp(36px, 4.6vw, 58px); line-height: 1.16; }
+.article-page .hero::after { width: 110px; height: 165px; right: 20px; top: 100px; }
+.article-layout { display: grid; grid-template-columns: 210px minmax(0, 1fr); gap: 48px; align-items: start; }
+.article-guide { position: sticky; top: 105px; padding: 10px 0 22px; }
+.article-guide h2 { font: 14px/1.8 var(--mono); color: #9ebccd; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 16px; }
+.article-guide nav { display: grid; gap: 4px; border-left: 1px solid #2d5067; }
+.article-guide a { color: #aac3d3; padding: 8px 0 8px 16px; font-size: 14px; line-height: 1.6; }
+.article-guide a:hover { color: var(--accent); }
+.article-page .panel { padding: 0 0 32px; margin-bottom: 30px; border: 0; border-bottom: 1px solid #234353; border-radius: 0; background: none; }
+.article-page .panel > h2 { font-size: 24px; }
+.article-page .panel p, .article-page .panel li { font-size: 18px; }
+.inner-page .code-block { background: #04111c; border-color: #2b5066; border-left: 3px solid #428bb5; border-radius: 4px; font-size: 15px; line-height: 1.9; padding: 22px; }
+.article-page .steps-list { padding-left: 28px; }
+.article-page .steps-list > li { padding-left: 8px; margin-bottom: 24px; }
+.article-page .steps-list > li::marker { color: var(--accent); font-family: var(--mono); }
+.article-return { display: inline-flex; gap: 14px; align-items: center; min-height: 44px; margin-bottom: 30px; font: 14px/1.8 var(--mono); }
+.article-return::before { content: "←"; }
+.not-found-page .terminal-shell { max-width: 1080px; }
+.not-found-page h1 { color: var(--accent); font-size: clamp(90px, 14vw, 160px); margin-bottom: 4px; }
+.not-found-page .content { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+.not-found-page .panel { margin: 0; }
+.not-found-page .endnote-panel { grid-column: 1 / -1; }
+
+@media (max-width: 1000px) {
+  .inner-page .hero { padding-right: 185px; }
+  .inner-page .hero::after { right: 14px; width: 120px; height: 180px; }
+  .inner-page .terminal-shell { padding-inline: 28px; }
+  .resume-page .content { grid-template-columns: minmax(0, 280px) minmax(0, 1fr); gap: 20px; }
+  .resume-page .panel { padding: 23px; }
+  .article-layout { grid-template-columns: 170px minmax(0, 1fr); gap: 32px; }
+  .lab-nodes { grid-template-columns: repeat(3, minmax(0, 1fr)); padding-top: 0; }
+  .lab-nodes::before, .lab-nodes li::before { content: none; }
+}
+@media (max-width: 760px) {
+  .inner-page .terminal-shell { padding-inline: 20px; }
+  .inner-page .hero { padding: 30px 0 0; margin-bottom: 26px; }
+  .inner-page .hero::before { inset: 0 0 0 40%; opacity: .5; }
+  .inner-page .hero::after { top: 70px; right: 4px; width: 80px; height: 120px; opacity: .09; }
+  .page-kicker { margin-bottom: 24px; font-size: 14px; padding-right: 45px; gap: 9px; }
+  .hero-index { top: 30px; font-size: 14px; letter-spacing: 0; }
+  .inner-page h1 { font-size: clamp(38px, 9vw, 54px); letter-spacing: -1.5px; }
+  .inner-page .intro { font-size: 17px; line-height: 1.85; }
+  .page-nav { margin-top: 24px; gap: 6px 22px; padding-block: 14px; }
+  .inner-page .panel { padding: 22px; }
+  .projects-page .directory-panel, .blog-page .posts-panel, .article-page .panel { padding: 0; }
+  .projects-page .status-legend { grid-template-columns: 1fr; gap: 18px; }
+  .projects-page .status-legend-item { border: 0; border-top: 1px solid #294758; padding: 18px 0 0; }
+  .projects-page .status-legend-item:first-child { padding-top: 0; border: 0; }
+  .projects-page .project-list, .blog-page .project-list { grid-template-columns: 1fr; }
+  .inner-page .project-card { padding: 24px; }
+  .projects-page .project-controls { padding: 14px; }
+  .projects-page .project-filters { gap: 6px; }
+  .projects-page .project-filters button { font-size: 14px; padding-inline: 9px; }
+  .projects-page .section-top { gap: 14px; flex-wrap: wrap; }
+  .homelab-page .content, .resume-page .content, .not-found-page .content { display: block; }
+  .homelab-page .panel, .resume-page .panel, .not-found-page .panel { margin-bottom: 20px; }
+  .service-list { grid-template-columns: 1fr; }
+  .lab-nodes { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+  .lab-nodes li:last-child { grid-column: 1 / -1; }
+  .lab-nodes li { padding: 18px; }
+  .article-layout { display: block; }
+  .article-guide { position: static; margin-bottom: 28px; padding-top: 0; }
+  .article-guide nav { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .article-guide a { padding: 9px 12px; }
+  .article-page .panel { padding-bottom: 24px; }
+  .article-page .panel p, .article-page .panel li { font-size: 17px; }
+  .article-page .hero::after { top: 90px; }
+  .not-found-page h1 { font-size: 110px; }
+}
+@media print {
+  .inner-page { background: white; }
+  .inner-page .terminal-shell { max-width: none; padding: 0; }
+  .inner-page .hero { padding: 0 0 16px; background: none; margin-bottom: 20px; }
+  .inner-page .hero::before, .inner-page .hero::after, .hero-index, .page-kicker, .page-nav, .article-guide, .article-return { display: none; }
+  .inner-page h1 { color: #111; font-size: 32px; }
+  .inner-page .hero .intro, .inner-page .hero .tagline, .inner-page .hero .alias-line, .inner-page .hero .role-line { color: #333; }
+  .inner-page .panel, .inner-page .project-card { border: 0; background: white; padding: 0; margin: 0 0 20px; color: #111; box-shadow: none; }
+  .inner-page .panel h2, .inner-page .panel h3, .inner-page .panel p, .inner-page .panel li, .inner-page .panel strong, .inner-page .career-entry .career-meta { color: #222; }
+  .inner-page .panel > h2::before { display: none; }
+  .resume-page .content, .homelab-page .content, .article-layout, .inner-page .project-list, .not-found-page .content { display: block; }
+  .career-entry { padding-left: 0; border: 0; margin: 0 0 24px; }
+  .career-entry::before { content: none; }
+  .career-entry h3 { break-after: avoid; }
+  .inner-page .site-footer { display: none; }
+  .tree-details { display: none; }
+}
