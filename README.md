@@ -17,9 +17,11 @@ This repository contains the source for a static personal site focused on:
 
 - `index.html` — homepage / overview
 - `projects.html` — selected projects and active work
+- `projects/janitorfin.html` — Janitorfin case study, with an actual interface capture, workflow, decisions, and source references
 - `homelab.html` — homelab overview and infrastructure notes
 - `blog/index.html` — writeups and technical posts
 - `resume.html` — resume and experience overview
+- `output/pdf/conley-dannels-resume.pdf` — downloadable two-page resume with selectable text
 - `404.html` — custom not-found page
 - `robots.txt` / `sitemap.xml` — crawler and discovery metadata
 
@@ -84,6 +86,14 @@ Header branding is shared across all root and blog pages. Keep the static header
 For a local preview that omits production analytics, run `python scripts/preview.py` and open http://127.0.0.1:8765/. Append `?nojs=1` to verify navigation and content without JavaScript. Stop the server with Ctrl+C.
 
 Run `python scripts/check_site.py`, `node --check js/index.js`, and `git diff --check` for local structural checks. Also check desktop/mobile appearance, filtering, search, the search shortcut, and mobile keyboard navigation in a browser after changes. No build step or framework dependency is required.
+
+### Case study, writing, and resume
+
+The Janitorfin case study links to the exact public source revision used for its implementation details. Update the cited revision when changing technical claims. Its image shows the installed plugin's Jellyfin interface with the server name removed; connection settings and individual media rows are outside the capture. Project directory cards remain text-only, with a link to the case study.
+
+The automation, homelab, and site-build articles include practical examples, section navigation, related reading, and explicit update dates. Their reading times are editorial estimates at roughly 220 words per minute; refresh them when changing the content. Recovery exercises and proposed testing work are described as recommendations, without claiming measured results.
+
+The downloadable resume is a static PDF, so visitors need no JavaScript or PDF-generation service. Rebuild it with `python scripts/build_resume.py` in an environment with ReportLab installed. Keep the concise content in that script aligned with `resume.html` and the linked project source. Verify that the PDF still has two pages, inspect both rendered pages, and check extracted text before replacing the published copy. The PDF uses one column, standard section names, visible contact links, and selectable text.
 
 ## Original theme
 

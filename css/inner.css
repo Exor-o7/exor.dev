@@ -202,6 +202,51 @@
 .not-found-page .panel { margin: 0; }
 .not-found-page .endnote-panel { grid-column: 1 / -1; }
 
+/* Evidence and supporting material for case studies and technical articles. */
+.reading-meta { color: #9bb8ca; font: 14px/1.8 var(--mono); margin: 20px 0 0; }
+.reading-meta > span { color: #557f99; margin-inline: 8px; }
+.article-page .panel code { font-family: var(--mono); color: #b6daf0; font-size: .88em; overflow-wrap: anywhere; }
+.article-page .code-block code { color: inherit; font-size: inherit; }
+.case-study-page .terminal-shell { max-width: 1280px; }
+.case-study-page h1 { font-size: clamp(36px, 4.5vw, 58px); }
+.case-study-page .article-layout { grid-template-columns: 210px minmax(0, 1fr); gap: 42px; }
+.case-study-page .hero .intro { max-width: 760px; }
+.case-facts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); margin: 0 0 28px; gap: 16px; }
+.case-facts > div { padding: 20px; border: 1px solid #2c4e62; background: #0a202d; border-radius: 4px; }
+.case-facts dt { font: 14px/1.8 var(--mono); color: #8fc9eb; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px; }
+.case-facts dd { margin: 0; color: #c6d9e5; font-size: 16px; line-height: 1.8; }
+.product-figure, .workflow-figure { margin: 28px 0; }
+.product-figure img { display: block; width: 100%; height: auto; border: 1px solid #355971; border-radius: 5px; }
+.product-figure figcaption { margin-top: 12px; font-size: 14px; line-height: 1.8; color: #9fbccd; }
+.workflow-figure { padding: 23px; border: 1px solid #31536a; background: #081e2b; border-radius: 5px; }
+.workflow-figure > figcaption { font: 14px/1.8 var(--mono); color: #a6cfe7; margin-bottom: 22px; }
+.workflow-steps { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); list-style: none; padding: 0; margin: 0; gap: 20px; }
+.workflow-steps li { padding: 18px; background: #04141f; border-top: 2px solid #45a6db; }
+.workflow-steps span { display: block; font: 14px/1.8 var(--mono); color: #8cbdd9; margin-bottom: 12px; }
+.workflow-steps strong { display: block; font-size: 18px; line-height: 1.6; margin-bottom: 8px; }
+.article-page .workflow-steps p { font-size: 16px; margin: 0; }
+.source-list { padding-left: 22px; }
+.source-list li { margin-bottom: 12px; }
+.article-page .related-reading { margin: 16px 0 24px; padding: 24px; background: #0a2333; border: 1px solid #2a4c62; border-radius: 5px; }
+.related-reading h2 { font-size: 20px; margin-bottom: 16px; }
+.inner-page .page-nav .resume-download { color: #8dd7ff; }
+@media (max-width: 1000px) {
+  .case-study-page .article-layout { grid-template-columns: 170px minmax(0, 1fr); gap: 28px; }
+}
+@media (max-width: 760px) {
+  .case-study-page .article-layout { display: block; }
+  .case-facts, .workflow-steps { grid-template-columns: 1fr; }
+  .workflow-figure { padding: 18px; }
+  .article-page .related-reading { padding: 20px; }
+}
+@media print {
+  .reading-meta { color: #333; }
+  .case-study-page .article-layout, .case-facts, .workflow-steps { display: block; }
+  .case-facts > div, .workflow-figure, .workflow-steps li { color: #111; background: none; border: 0; padding: 0; margin-bottom: 15px; }
+  .case-facts dt, .case-facts dd, .workflow-steps span, .article-page .panel code { color: #222; }
+  .related-reading { display: none; }
+}
+
 @media (max-width: 1000px) {
   .inner-page .hero { padding-right: 185px; }
   .inner-page .hero::after { right: 14px; width: 120px; height: 180px; }

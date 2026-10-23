@@ -6,7 +6,7 @@
   <title>Homelab Notes: What I Actually Learn | Exor.dev</title>
   <meta
     name="description"
-    content="A short note on what a homelab teaches beyond self-hosting: troubleshooting, reliability, and operational thinking."
+    content="Practical homelab notes on dependencies, read-only Docker Compose troubleshooting, readiness, persistent state, and recovery exercises."
   />
   <meta name="author" content="Conley Dannels" />
   <meta name="theme-color" content="#040e17" />
@@ -14,11 +14,11 @@
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Exor.dev" />
   <meta property="og:title" content="Homelab Notes: What I Actually Learn | Exor.dev" />
-  <meta property="og:description" content="A short note on what a homelab teaches beyond self-hosting: troubleshooting, reliability, and operational thinking." />
+  <meta property="og:description" content="Practical homelab notes on dependencies, read-only Docker Compose troubleshooting, readiness, persistent state, and recovery exercises." />
   <meta property="og:url" content="https://exor.dev/blog/homelab-lessons.html" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Homelab Notes: What I Actually Learn | Exor.dev" />
-  <meta name="twitter:description" content="A short note on what a homelab teaches beyond self-hosting: troubleshooting, reliability, and operational thinking." />
+  <meta name="twitter:description" content="Practical homelab notes on dependencies, read-only Docker Compose troubleshooting, readiness, persistent state, and recovery exercises." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -52,30 +52,51 @@
         A homelab is useful because it teaches more than how to deploy services. It teaches troubleshooting, planning,
         tradeoffs, backup thinking, and the habit of improving systems after they break.
       </p>
+      <p class="reading-meta">Updated <time datetime="2026-10-23">October 23, 2026</time><span aria-hidden="true"> / </span>4 min read</p>
       <nav class="page-nav" aria-label="Page shortcuts"><a href="index.html">All writing</a><a href="../projects.html">Explore projects</a></nav>
     </header>
 
     <div class="article-layout">
-      <aside class="article-guide" aria-label="Article sections"><h2>In this entry</h2><nav aria-label="Table of contents"><a href="#lessons-learned">Lessons learned</a><a href="#why-it-matters">Why it matters</a></nav></aside>
+      <aside class="article-guide" aria-label="Article sections"><h2>In this entry</h2><nav aria-label="Table of contents"><a href="#lessons-learned">Start with the dependencies</a><a href="#read-only-triage">Collect evidence before changing state</a><a href="#running-versus-ready">Running is not the same as ready</a><a href="#recovery-plan">Write a recovery plan that names the state</a><a href="#test-the-restore">Define what a successful restore means</a><a href="#why-it-matters">What the lab teaches beyond self-hosting</a></nav></aside>
     <main id="main-content" class="content">
-      <section class="panel">
-        <h2 id="lessons-learned">Lessons learned</h2>
-        <div class="terminal-output">
-          <p>Real infrastructure work means understanding service dependencies, failure points, and recovery paths.</p>
-          <p>Self-hosting creates practical pressure to care about storage, uptime, access, updates, and backups.</p>
-          <p>The most useful part is not the stack itself, but the habits built by running and maintaining it.</p>
-        </div>
-      </section>
+<section class="panel"><h2 id="lessons-learned">Start with the dependencies</h2>
+<p>My lab includes Proxmox, TrueNAS, Docker Compose, UniFi networking, Caddy, and a collection of media services. Listing those names explains what is installed. Understanding what must work before something else can work is more useful when a service fails.</p>
+<p>Jellyfin needs access to its configuration and media. A reverse proxy needs a reachable upstream before it can serve that application. An automation that talks to Jellyfin, Radarr, or Sonarr also needs those APIs to be available. A visible failure at the edge may begin with a storage mount, a name-resolution problem, or an upstream application.</p>
+<p>The <a href="../homelab.html#infrastructure-overview">stack overview</a> groups the main areas of practice. For troubleshooting, I use a more specific question: which dependency would explain this symptom, and what evidence would distinguish it from the next possibility?</p>
+</section>
 
-      <section class="panel">
-        <h2 id="why-it-matters">Why it matters</h2>
-        <p>
-          That is why the homelab matters to me: it turns theory into repetition, repetition into judgment, and judgment
-          into better systems thinking.
-        </p>
-      </section>
-    <a class="article-return" href="index.html">Back to all writing</a>
-    </main>
+<section class="panel"><h2 id="read-only-triage">Collect evidence before changing state</h2>
+<p>For a Compose-managed service, a short initial sequence is configuration validation, container status, and a bounded slice of recent logs. Run these commands from the directory containing the relevant Compose file. They inspect the deployment; they do not restart or recreate its services.</p>
+<pre class="code-block"><code>docker compose config --quiet
+docker compose ps
+docker compose logs --tail 100 --timestamps</code></pre>
+<p><code>config --quiet</code> checks the resolved configuration without printing it. A valid configuration does not prove that a mounted path exists, that a service can authenticate to an API, or that an application is healthy. Status and logs provide the next pieces of evidence.</p>
+<p>Keep the log window bounded so a recent error is not buried in hours of output. Look for the first meaningful failure and its timing: a refused connection, an unavailable path, or an authentication error points to different next steps. Docker documents the <a href="https://docs.docker.com/reference/cli/docker/compose/config/">configuration command</a> and <a href="https://docs.docker.com/reference/cli/docker/compose/logs/">log options</a>.</p>
+</section>
+
+<section class="panel"><h2 id="running-versus-ready">Running is not the same as ready</h2>
+<p>A container can be running while the application inside it is still starting. If another service begins work during that interval, a connection failure may look like a bad configuration even though the real issue is readiness.</p>
+<p>Compose can use <code>depends_on</code> to establish startup order. Waiting for a dependency's health check requires the <code>service_healthy</code> condition; ordinary startup ordering alone does not establish application readiness. This behavior is described in <a href="https://docs.docker.com/compose/how-tos/startup-order/">Docker's startup-order documentation</a>.</p>
+<p>Health checks also have a scope. A successful HTTP response may tell me the application is listening without proving that it can read the media share or complete an integration request. The check should match the task the next service actually needs to perform.</p>
+</section>
+
+<section class="panel"><h2 id="recovery-plan">Write a recovery plan that names the state</h2>
+<p>A recovery plan needs more than an image name. For each service, identify its persistent configuration, databases, media or user data, volume mappings, and required credentials. Those pieces can have different backup and recovery requirements.</p>
+<ul><li><strong>Configuration:</strong> the Compose definition, environment settings, mounts, and application-specific configuration.</li><li><strong>Application state:</strong> databases, accounts, scheduled work, and queues that determine what happens after a restart.</li><li><strong>Content:</strong> the underlying datasets or shares used by the service.</li><li><strong>Dependencies:</strong> storage availability, networking, DNS, and APIs the service needs to operate.</li></ul>
+<p>Janitorfin is a useful example of why this matters. Its pending-deletion queue contains saved deadlines. Restoring only the plugin binary does not restore that operational state. The queue and its meaning belong in the recovery plan.</p>
+</section>
+
+<section class="panel"><h2 id="test-the-restore">Define what a successful restore means</h2>
+<p>The following is a recovery exercise outline, not a claim that every service in my lab has passed a measured recovery test. The first step is to choose a small, representative service and document what a successful recovery would look like.</p>
+<ol><li>Identify a backup and the version of the application it belongs to.</li><li>Restore the required state into an isolated test environment.</li><li>Prevent scheduled jobs, notifications, and external write operations from acting on the live environment.</li><li>Check that the application starts, its expected data is present, and a representative read operation succeeds.</li><li>Record missing dependencies, manual steps, and elapsed recovery time for the next revision of the runbook.</li></ol>
+<p>A successful restore is stronger evidence than a successful backup job. It tests whether the saved data, application version, and recovery instructions are sufficient together.</p>
+</section>
+
+<section class="panel"><h2 id="why-it-matters">What the lab teaches beyond self-hosting</h2>
+<p>The technical stack creates recurring opportunities to practice diagnosis: separate symptoms from causes, inspect before restarting, and verify the user-facing operation after a change. It also makes maintenance work visible. Updates, retention policies, saved state, and recovery instructions all become part of operating a service.</p>
+<p>That is the connection to systems work. A useful lab develops the habit of asking what a system depends on, how its state changes, and how someone could recover it without relying on memory.</p>
+</section><aside class="related-reading" aria-label="Related reading"><h2>Keep exploring</h2><div class="link-grid"><a href="../homelab.html">Explore the homelab</a><a href="automation-workflows.html">Automation design notes</a></div></aside><a class="article-return" href="index.html">Back to all writing</a>
+</main>
     </div>
 
     <footer class="site-footer">

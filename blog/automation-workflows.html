@@ -6,7 +6,7 @@
   <title>Automation That Actually Helps | Exor.dev</title>
   <meta
     name="description"
-    content="A short note on using automation for practical workflow improvements instead of automation for its own sake."
+    content="A practical walkthrough of preview, persistent state, partial failures, and operational checks using Janitorfin as a real automation example."
   />
   <meta name="author" content="Conley Dannels" />
   <meta name="theme-color" content="#040e17" />
@@ -14,11 +14,11 @@
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Exor.dev" />
   <meta property="og:title" content="Automation That Actually Helps | Exor.dev" />
-  <meta property="og:description" content="A short note on using automation for practical workflow improvements instead of automation for its own sake." />
+  <meta property="og:description" content="A practical walkthrough of preview, persistent state, partial failures, and operational checks using Janitorfin as a real automation example." />
   <meta property="og:url" content="https://exor.dev/blog/automation-workflows.html" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Automation That Actually Helps | Exor.dev" />
-  <meta name="twitter:description" content="A short note on using automation for practical workflow improvements instead of automation for its own sake." />
+  <meta name="twitter:description" content="A practical walkthrough of preview, persistent state, partial failures, and operational checks using Janitorfin as a real automation example." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -52,30 +52,62 @@
         The most useful automation is usually small. It saves repetition, reduces mistakes, and makes common tasks more
         predictable instead of trying to look impressive for its own sake.
       </p>
+      <p class="reading-meta">Updated <time datetime="2026-10-23">October 23, 2026</time><span aria-hidden="true"> / </span>4 min read</p>
       <nav class="page-nav" aria-label="Page shortcuts"><a href="index.html">All writing</a><a href="../projects.html">Explore projects</a></nav>
     </header>
 
     <div class="article-layout">
-      <aside class="article-guide" aria-label="Article sections"><h2>In this entry</h2><nav aria-label="Table of contents"><a href="#automation-principles">Automation principles</a><a href="#goal">Goal</a></nav></aside>
+      <aside class="article-guide" aria-label="Article sections"><h2>In this entry</h2><nav aria-label="Table of contents"><a href="#automation-principles">Start with a decision you can explain</a><a href="#separate-plan-from-apply">Separate the plan from the change</a><a href="#make-time-explicit">Make time and state explicit</a><a href="#handle-partial-failure">Design for partial failure</a><a href="#check-before-scheduling">A checklist before scheduling</a><a href="#goal">The goal: less work, clearer outcomes</a></nav></aside>
     <main id="main-content" class="content">
-      <section class="panel">
-        <h2 id="automation-principles">Automation principles</h2>
-        <div class="terminal-output">
-          <p>Automate tasks that repeat often enough to waste time or create inconsistency.</p>
-          <p>Prefer scripts that are easy to rerun, easy to understand, and easy to fix later.</p>
-          <p>Use automation to support operations, not to hide how a system actually works.</p>
-        </div>
-      </section>
+<section class="panel"><h2 id="automation-principles">Start with a decision you can explain</h2>
+<p>A useful automation starts with a specific repeated decision. In Janitorfin, that decision is whether media qualifies for cleanup under configured retention rules. The interesting work begins after identifying a candidate: making the proposed change understandable, giving people time to react, and coordinating the other systems that manage the same content.</p>
+<p>This is the same pattern behind smaller operational tools. Identify the inputs, write down the rule, and name the intended result before adding a scheduler or interface. If the rule cannot be explained in a few sentences, running it unattended will not make it easier to support.</p>
+<p>For cleanup, “old” is not enough. Watched and never-watched media have different rules. A protected tag or a favorite can exclude an item. TV decisions also need a scope: an individual episode becoming eligible should not automatically mean an entire season is ready to remove.</p>
+</section>
 
-      <section class="panel">
-        <h2 id="goal">Goal</h2>
-        <p>
-          Over time, these small workflow improvements add up to better reliability, cleaner handoffs, and a stronger
-          foundation for larger operational practices.
-        </p>
-      </section>
-    <a class="article-return" href="index.html">Back to all writing</a>
-    </main>
+<section class="panel"><h2 id="separate-plan-from-apply">Separate the plan from the change</h2>
+<p>Janitorfin has a preview that evaluates the settings currently shown in the form without changing the pending queue, deleting media, or updating Radarr and Sonarr. That separation makes rule tuning a visible process rather than an experiment on the library.</p>
+<p>The following Python example illustrates a much smaller planning step. It returns a reason for each decision and does not modify files or call external services. The age threshold is an example, not a recommended retention policy or Janitorfin's actual evaluator.</p>
+<pre class="code-block"><code>def plan_item(item, retention_days):
+    if item["protected"]:
+        return {"id": item["id"], "action": "keep",
+                "reason": "protected"}
+    if item["days_since_activity"] &lt; retention_days:
+        return {"id": item["id"], "action": "keep",
+                "reason": "recent activity"}
+    return {"id": item["id"], "action": "review",
+            "reason": "retention threshold reached"}
+
+sample = {"id": "example-01", "protected": False,
+          "days_since_activity": 120}
+print(plan_item(sample, retention_days=90))
+# {'id': 'example-01', 'action': 'review',
+#  'reason': 'retention threshold reached'}</code></pre>
+<p>A production implementation needs validation for missing or invalid inputs. The important property here is that a plan can be inspected and tested independently of the code that applies it.</p>
+</section>
+
+<section class="panel"><h2 id="make-time-explicit">Make time and state explicit</h2>
+<p>A preview is a snapshot. A queued operation needs durable state. Janitorfin saves a pending item's identity, when it first qualified, when it last matched, and its deletion deadline. Repeated scans refresh the existing entry without continually moving that deadline forward.</p>
+<p>There is a concrete policy consequence: changing the grace-period setting affects newly queued items, but does not rewrite deadlines already saved in the queue. An operator needs to understand both the setting and the state created by earlier runs.</p>
+<p>The <a href="https://github.com/Exor-o7/Janitorfin/blob/fb72f2a9abf925f09129826ab1a66a842f0c2d76/Janitorfin.Plugin/Services/PendingDeletionQueueService.cs">pending queue implementation</a> makes that distinction visible. A later scan can remove items that no longer qualify. The overdue task uses the stored queue and lightweight protection checks instead of repeating the full evaluation.</p>
+</section>
+
+<section class="panel"><h2 id="handle-partial-failure">Design for partial failure</h2>
+<p>Two services do not become one transaction just because one script calls both. Janitorfin updates monitoring in an enabled Radarr or Sonarr integration before deleting the corresponding Jellyfin item. If the required monitoring action fails, that item's deletion is skipped.</p>
+<p>The reverse failure still matters: monitoring may be updated successfully and the filesystem deletion may then fail. A useful result needs to preserve that distinction instead of reporting a single vague failure. Janitorfin records deletion outcomes and whether the monitoring update succeeded in its <a href="https://github.com/Exor-o7/Janitorfin/blob/fb72f2a9abf925f09129826ab1a66a842f0c2d76/Janitorfin.Plugin/Services/CleanupExecutionService.cs">execution results</a>.</p>
+<p>For another tool, the same question might be whether an account was created before an email failed, or whether a deployment succeeded before a notification timed out. Retrying the whole workflow without understanding those boundaries can repeat a successful step.</p>
+</section>
+
+<section class="panel"><h2 id="check-before-scheduling">A checklist before scheduling</h2>
+<ul><li><strong>Repeat runs:</strong> does the same input create duplicate work, reset a deadline, or produce a stable result?</li><li><strong>Changed conditions:</strong> which rules are checked again immediately before a change, and which depend on an earlier scan?</li><li><strong>Dependency failure:</strong> does the tool skip, stop, or continue when another service is unavailable?</li><li><strong>Observability:</strong> can an operator distinguish a candidate, a queued item, a skipped action, and a completed action?</li><li><strong>Scope:</strong> does a dry run avoid every relevant side effect, including remote monitoring updates?</li></ul>
+<p>These checks are more useful than asking whether the script completed without an exception. They describe whether the resulting system state is the one the operator intended.</p>
+</section>
+
+<section class="panel"><h2 id="goal">The goal: less work, clearer outcomes</h2>
+<p>The value of automation is not the number of scheduled jobs. It is the manual decision that no longer needs constant attention, with enough explanation and control left behind to handle an exception.</p>
+<p>Janitorfin provides a concrete example: preview the rule, stage the decision, show it to the people affected, and apply it later with explicit protection and integration behavior. The <a href="../projects/janitorfin.html">full case study</a> follows that workflow through the implementation.</p>
+</section><aside class="related-reading" aria-label="Related reading"><h2>Keep exploring</h2><div class="link-grid"><a href="../projects/janitorfin.html">Janitorfin case study</a><a href="homelab-lessons.html">Homelab recovery notes</a></div></aside><a class="article-return" href="index.html">Back to all writing</a>
+</main>
     </div>
 
     <footer class="site-footer">

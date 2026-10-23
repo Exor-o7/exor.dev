@@ -6,7 +6,7 @@
   <title>Building Exor.dev | Exor.dev</title>
   <meta
     name="description"
-    content="Notes on building Exor.dev into a simple multi-page portfolio with a terminal-inspired design."
+    content="How Exor.dev uses static HTML, progressive enhancement, shared page styling, and local checks to keep a technical portfolio maintainable."
   />
   <meta name="author" content="Conley Dannels" />
   <meta name="theme-color" content="#040e17" />
@@ -14,11 +14,11 @@
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Exor.dev" />
   <meta property="og:title" content="Building Exor.dev | Exor.dev" />
-  <meta property="og:description" content="Notes on building Exor.dev into a simple multi-page portfolio with a terminal-inspired design." />
+  <meta property="og:description" content="How Exor.dev uses static HTML, progressive enhancement, shared page styling, and local checks to keep a technical portfolio maintainable." />
   <meta property="og:url" content="https://exor.dev/blog/building-exor-dev.html" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Building Exor.dev | Exor.dev" />
-  <meta name="twitter:description" content="Notes on building Exor.dev into a simple multi-page portfolio with a terminal-inspired design." />
+  <meta name="twitter:description" content="How Exor.dev uses static HTML, progressive enhancement, shared page styling, and local checks to keep a technical portfolio maintainable." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -52,38 +52,47 @@
         Exor.dev started as a single static page and is gradually being expanded into a clearer multi-page portfolio.
         The goal is to keep it simple, fast, and easy to update while still making the site feel intentional.
       </p>
+      <p class="reading-meta">Updated <time datetime="2026-10-23">October 23, 2026</time><span aria-hidden="true"> / </span>3 min read</p>
       <nav class="page-nav" aria-label="Page shortcuts"><a href="index.html">All writing</a><a href="../projects.html">Explore projects</a></nav>
     </header>
 
     <div class="article-layout">
-      <aside class="article-guide" aria-label="Article sections"><h2>In this entry</h2><nav aria-label="Table of contents"><a href="#why-i-built-this-site">Why I built this site</a><a href="#what-changed">What changed</a><a href="#what-s-next">What’s next</a></nav></aside>
+      <aside class="article-guide" aria-label="Article sections"><h2>In this entry</h2><nav aria-label="Table of contents"><a href="#why-i-built-this-site">A portfolio I can maintain</a><a href="#what-changed">Separate identity from navigation</a><a href="#progressive-enhancement">Make JavaScript an enhancement</a><a href="#local-validation">Check the things that can break quietly</a><a href="#what-s-next">Let the content earn the design</a></nav></aside>
     <main id="main-content" class="content">
-      <section class="panel">
-        <h2 id="why-i-built-this-site">Why I built this site</h2>
-        <p>
-          The site exists to show direction, active work, and technical growth without relying on a heavy framework or a
-          complicated build process. Static HTML and CSS are enough for this stage, and they make iteration fast.
-        </p>
-      </section>
+<section class="panel"><h2 id="why-i-built-this-site">A portfolio I can maintain</h2>
+<p>Exor.dev documents systems work, automation projects, and the technical direction I am developing alongside my IT career. It needs to make that work easy to find and be simple enough that adding a project or correcting a description is a small task.</p>
+<p>The site uses HTML, CSS, and a small JavaScript file. GitHub Pages serves the files on a custom domain. There is no application server, package installation, or framework build step required to preview the site. That keeps the deployment model close to the content being published.</p>
+</section>
 
-      <section class="panel">
-        <h2 id="what-changed">What changed</h2>
-        <div class="terminal-output">
-          <p>Moved from a single homepage toward a fuller structure with projects, homelab, blog, resume, and 404 support.</p>
-          <p>Kept the visual identity centered on a terminal-inspired layout that non-technical visitors can still read quickly.</p>
-          <p>Focused on clarity first: navigation, page purpose, and active work before visual polish.</p>
-        </div>
-      </section>
+<section class="panel"><h2 id="what-changed">Separate identity from navigation</h2>
+<p>The homepage pairs the supplied ronin illustration with an introduction, featured projects, skills, experience, and writing. The illustration establishes the identity, while the links give a visitor a direct path to the work behind it.</p>
+<p>Inner pages share the wordmark, cyan accents, calligraphy, and navigation, with layouts adapted to their content. The project directory uses filterable cards. The resume uses an experience timeline. Articles use a reading column and a section guide. The earlier terminal theme remains archived in the repository rather than being mixed into the current navigation.</p>
+</section>
 
-      <section class="panel">
-        <h2 id="what-s-next">What’s next</h2>
-        <p>
-          The next improvements are deeper content, more project-specific detail, and a growing set of notes that show
-          how the site evolves alongside the work it documents.
-        </p>
-      </section>
-    <a class="article-return" href="index.html">Back to all writing</a>
-    </main>
+<section class="panel"><h2 id="progressive-enhancement">Make JavaScript an enhancement</h2>
+<p>The projects exist as HTML articles before JavaScript runs. Search and category controls begin hidden and become available when their event handlers are attached. If scripts are disabled, a visitor still gets the complete directory and ordinary links.</p>
+<p>The homepage has three static featured cards as a fallback. When served normally, JavaScript reads the project directory and refreshes the selection. It also updates the project count from the same directory. That reduces one source of duplicated content without making the first useful render depend on a request.</p>
+<p>The tradeoff is that navigation markup is still repeated across static pages. Root pages and pages in subdirectories need different relative paths. Keeping that markup consistent is an explicit maintenance task, and local link checks help catch mistakes.</p>
+</section>
+
+<section class="panel"><h2 id="local-validation">Check the things that can break quietly</h2>
+<p>The repository includes a local preview that omits production analytics and can disable scripts with a query parameter. That makes the fallback content easy to inspect separately from the interactive version.</p>
+<pre class="code-block"><code>python scripts/preview.py
+# Open http://127.0.0.1:8765/
+# Add ?nojs=1 to check the fallback.
+
+python scripts/check_site.py
+node --check js/index.js
+git diff --check</code></pre>
+<p>The structural checker follows local links and fragment targets, checks duplicate IDs and image attributes, and verifies the project count and lifecycle order. It catches a missing page or stale anchor before deployment. JavaScript syntax validation catches a different class of error.</p>
+<p>Neither replaces a browser check. A valid link can be difficult to tap, and valid CSS can still produce a cramped layout. The visual pass covers desktop and narrow screens, the mobile menu, keyboard focus, project filtering, and the empty state.</p>
+</section>
+
+<section class="panel"><h2 id="what-s-next">Let the content earn the design</h2>
+<p>The next step is depth: show how a project works, explain a decision, and link to evidence. The <a href="../projects/janitorfin.html">Janitorfin case study</a> follows that approach with its actual workflow and source references. A downloadable resume gives visitors a portable account of the experience behind the projects.</p>
+<p>The same rule applies to future changes to the site. Add a component when it helps someone understand the work or navigate it. Keep the content readable and the maintenance cost small enough that the portfolio can continue to reflect current work.</p>
+</section><aside class="related-reading" aria-label="Related reading"><h2>Keep exploring</h2><div class="link-grid"><a href="../projects/janitorfin.html">Read the Janitorfin case study</a><a href="automation-workflows.html">Automation design notes</a></div></aside><a class="article-return" href="index.html">Back to all writing</a>
+</main>
     </div>
 
     <footer class="site-footer">

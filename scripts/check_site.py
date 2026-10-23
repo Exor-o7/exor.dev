@@ -6,7 +6,7 @@ from urllib.parse import unquote, urlsplit
 import re
 
 ROOT = Path(__file__).resolve().parents[1]
-FILES = sorted(ROOT.glob('*.html')) + sorted((ROOT / 'blog').glob('*.html'))
+FILES = sorted(ROOT.glob('*.html')) + sorted((ROOT / 'blog').glob('*.html')) + sorted((ROOT / 'projects').glob('*.html'))
 
 
 class Page(HTMLParser):
