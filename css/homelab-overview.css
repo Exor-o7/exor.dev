@@ -1,0 +1,21 @@
+/* The portfolio keeps a compact gateway to the operations dashboard. */
+.lab-status-card { display: grid; grid-template-columns: minmax(220px,1.2fr) minmax(310px,1.5fr) auto; align-items: center; gap: 26px; padding: 24px 26px; border: 1px solid #2b5268; border-radius: 6px; background: linear-gradient(110deg,#0d293a,#061923); color: var(--text); }
+.lab-status-card:hover { color: var(--text); border-color: #58b6e7; background: linear-gradient(110deg,#103347,#08202e); text-decoration: none; }
+.lab-status-card:focus-visible { outline: 2px solid var(--accent-strong); outline-offset: 5px; }
+.lab-status-title { display: flex; align-items: center; gap: 19px; min-width: 0; }
+.lab-status-dot { display: block; width: 13px; height: 13px; flex: 0 0 13px; border-radius: 50%; background: #a2b7c8; box-shadow: 0 0 0 7px #9bb7cc12; }
+[data-state="operational"] .lab-status-dot { background: #73e5b0; box-shadow: 0 0 0 7px #73e5b012; }
+[data-state="degraded"] .lab-status-dot, [data-state="maintenance"] .lab-status-dot, [data-state="stale"] .lab-status-dot { background: #f0c572; }
+[data-state="outage"] .lab-status-dot, [data-state="disconnected"] .lab-status-dot { background: #ff7e91; }
+.lab-status-kicker { color: #9bcee9; text-transform: uppercase; letter-spacing: 1.6px; font: 14px/1.6 var(--mono); margin: 0 0 5px; }
+.lab-status-title h2 { font-size: 23px; letter-spacing: -.5px; margin: 0 0 5px; }
+#lab-status-note { color: #a7c2d4; font-size: 14px; line-height: 1.7; margin: 0; }
+.lab-status-facts { display: grid; grid-template-columns: 1fr 1.2fr; gap: 24px; margin: 0; padding-left: 26px; border-left: 1px solid #2b4d61; }
+.lab-status-facts dt { color: #9cbdd3; font: 14px/1.6 var(--mono); margin-bottom: 7px; }
+.lab-status-facts dd { color: #daeaf5; font: 14px/1.8 var(--mono); margin: 0; }
+.lab-status-link { display: flex; align-items: center; gap: 14px; font: 14px/1.7 var(--mono); color: #80d1ff; }
+.lab-status-link > span { font-size: 21px; }
+.lab-status-noscript { color: #b7cddd; font-size: 14px; margin: 12px 0 0; }
+@media (max-width: 1100px) { .lab-status-card { grid-template-columns: 1fr 1.4fr; gap: 20px; } .lab-status-link { grid-column: 1 / -1; border-top: 1px solid #29485c; padding-top: 13px; justify-content: space-between; } }
+@media (max-width: 760px) { .lab-status-card { grid-template-columns: 1fr; padding: 22px; gap: 20px; } .lab-status-facts { border-left: 0; padding: 16px 0 0; border-top: 1px solid #29485c; gap: 14px; } .lab-status-link { padding-top: 14px; } .lab-status-title h2 { font-size: 22px; } }
+@media print { .lab-status-card { background: none; border-color: #ccc; } }

@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": null,
+  "staleAfterSeconds": 180,
+  "status": "unknown",
+  "nodes": [
+    {"id": "proxmox", "name": "Proxmox", "role": "Compute / virtualization", "status": "unknown", "disks": []},
+    {"id": "truenas", "name": "TrueNAS", "role": "Storage / datasets", "status": "unknown", "disks": []},
+    {"id": "network", "name": "UDM Pro", "role": "Network / gateway", "status": "unknown", "disks": []}
+  ],
+  "services": [
+    {"id": "caddy", "name": "Caddy", "group": "Network", "status": "unknown"},
+    {"id": "jellyfin", "name": "Jellyfin", "group": "Media", "status": "unknown"},
+    {"id": "seerr", "name": "Seerr", "group": "Media", "status": "unknown"},
+    {"id": "jfa-go", "name": "jfa-go", "group": "Media", "status": "unknown"},
+    {"id": "jellystat", "name": "Jellystat", "group": "Media", "status": "unknown"},
+    {"id": "radarr", "name": "Radarr", "group": "Automation", "status": "unknown"},
+    {"id": "sonarr", "name": "Sonarr", "group": "Automation", "status": "unknown"},
+    {"id": "bazarr", "name": "Bazarr", "group": "Automation", "status": "unknown"},
+    {"id": "prowlarr", "name": "Prowlarr", "group": "Automation", "status": "unknown"},
+    {"id": "flaresolverr", "name": "FlareSolverr", "group": "Automation", "status": "unknown"},
+    {"id": "notifiarr", "name": "Notifiarr", "group": "Automation", "status": "unknown"}
+  ],
+  "backups": [
+    {"id": "vm-backups", "name": "VM backups", "status": "unknown", "lastSuccessAt": null, "maxAgeHours": 26},
+    {"id": "data-backups", "name": "Dataset backups", "status": "unknown", "lastSuccessAt": null, "maxAgeHours": 26}
+  ],
+  "history": [],
+  "events": []
+}
