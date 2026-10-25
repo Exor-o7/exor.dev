@@ -18,9 +18,7 @@ This repository contains the source for a static personal site focused on:
 - `index.html` — homepage / overview
 - `projects.html` — selected projects and active work
 - `projects/janitorfin.html` — Janitorfin case study, with an actual interface capture, workflow, decisions, and source references
-- `homelab.html` — lab overview and documentation, with a compact live status card
-- `status.html` — source template for the dashboard at https://status.exorverse.com/
-- `docs/homelab-dashboard.md` — dashboard behavior and live-data connection; the monitoring system lives in the sibling `../status` folder
+- `homelab.html` — lab overview and documentation
 - `blog/index.html` — writeups and technical posts
 - `resume.html` — resume and experience overview
 - `output/pdf/conley-dannels-resume.pdf` — downloadable two-page resume with selectable text

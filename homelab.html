@@ -29,11 +29,8 @@
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="css/ronin.css" />
   <link rel="stylesheet" href="css/inner.css" />
-  <link rel="stylesheet" href="css/homelab-overview.css" />
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
   <script src="js/index.js" defer></script>
-  <script src="js/lab-status.js?v=central-24h-1" defer></script>
-  <script src="js/homelab-overview.js?v=central-24h-1" defer></script>
 </head>
 <body class="inner-page homelab-page">
   <a class="skip-link" href="#main-content">Skip to content</a>
@@ -53,18 +50,10 @@
       <p class="alias-line">operator: Conley Dannels / Exor</p>
       <p class="role-line">Self-Hosting • Automation • Infrastructure</p>
       <p class="intro">My homelab is where I build, test, break, fix, automate, and learn.</p>
-      <nav class="page-nav" aria-label="Page shortcuts"><a href="https://status.exorverse.com/">Dashboard</a><a href="#infrastructure-overview">The stack</a><a href="#containers-services">Services</a><a href="#what-i-m-learning">Learning</a></nav>
+      <nav class="page-nav" aria-label="Page shortcuts"><a href="#infrastructure-overview">The stack</a><a href="#containers-services">Services</a><a href="#what-i-m-learning">Learning</a></nav>
     </header>
 
     <main id="main-content" class="content">
-      <section id="lab-status-overview" class="wide-panel lab-status-overview" aria-labelledby="lab-status-kicker" data-status-endpoint="https://status.exorverse.com/homelab-status.json">
-        <a class="lab-status-card" href="https://status.exorverse.com/" aria-labelledby="lab-status-kicker lab-status-health lab-status-link" aria-describedby="lab-status-note lab-status-facts" data-state="unknown">
-          <div class="lab-status-title"><span class="lab-status-dot" aria-hidden="true"></span><div><p id="lab-status-kicker" class="lab-status-kicker">Lab status</p><h2 id="lab-status-health">Unknown</h2><p id="lab-status-note">Monitoring not connected.</p></div></div>
-          <dl id="lab-status-facts" class="lab-status-facts"><div><dt>Services available</dt><dd id="lab-status-services">Unknown</dd></div><div><dt>Last updated</dt><dd><time id="lab-status-updated">Never</time></dd></div></dl>
-          <span id="lab-status-link" class="lab-status-link">View full dashboard <span aria-hidden="true">→</span></span>
-        </a>
-        <noscript><p class="lab-status-noscript">Enable JavaScript for current status. The dashboard link and lab documentation remain available.</p></noscript>
-      </section>
       <section id="lab-documentation" class="panel wide-panel">
 
         <h2 id="about-the-lab">About the lab</h2>
